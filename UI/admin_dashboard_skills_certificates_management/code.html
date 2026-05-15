@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary": "#412c14",
+                        "error": "#ffb4ab",
+                        "inverse-surface": "#e2e2e5",
+                        "secondary": "#dbc3a8",
+                        "outline-variant": "#444842",
+                        "inverse-primary": "#546252",
+                        "on-surface-variant": "#c4c8c0",
+                        "surface-container-lowest": "#0c0e10",
+                        "on-secondary-container": "#ccb59b",
+                        "on-background": "#e2e2e5",
+                        "on-primary-fixed": "#121f12",
+                        "surface-dim": "#121416",
+                        "on-primary-container": "#acbca9",
+                        "surface-container-highest": "#333537",
+                        "on-tertiary-fixed": "#291803",
+                        "on-error": "#690005",
+                        "tertiary-fixed-dim": "#e3c19f",
+                        "primary-fixed": "#d7e7d3",
+                        "on-surface": "#e2e2e5",
+                        "primary-fixed-dim": "#bbcbb7",
+                        "surface-bright": "#37393b",
+                        "tertiary": "#e3c19f",
+                        "tertiary-fixed": "#ffddbb",
+                        "surface-container-high": "#282a2c",
+                        "on-secondary-fixed": "#261908",
+                        "on-primary": "#263426",
+                        "primary-container": "#3e4c3d",
+                        "on-secondary": "#3c2e1b",
+                        "secondary-fixed-dim": "#dbc3a8",
+                        "on-primary-fixed-variant": "#3c4a3b",
+                        "secondary-fixed": "#f8dec3",
+                        "primary": "#bbcbb7",
+                        "on-tertiary-fixed-variant": "#5a4229",
+                        "on-error-container": "#ffdad6",
+                        "tertiary-container": "#5b442a",
+                        "surface-container-low": "#1a1c1e",
+                        "surface": "#121416",
+                        "surface-container": "#1e2022",
+                        "surface-tint": "#bbcbb7",
+                        "surface-variant": "#333537",
+                        "background": "#121416",
+                        "outline": "#8e928b",
+                        "secondary-container": "#574632",
+                        "on-secondary-fixed-variant": "#544430",
+                        "inverse-on-surface": "#2f3133",
+                        "on-tertiary-container": "#d3b291",
+                        "error-container": "#93000a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Space Grotesk"],
+                        "display": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #121416;
+            color: #e2e2e5;
+            font-family: 'Inter', sans-serif;
+        }
+        .tonal-shifts {
+            background: linear-gradient(145deg, #1e2022, #121416);
+        }
+    </style>
+</head>
+<body class="flex min-h-screen">
+<!-- SideNavBar (Shared Component JSON Mapping) -->
+<aside class="h-screen w-64 border-r border-stone-800/30 bg-stone-950/60 backdrop-blur-xl flex flex-col py-8 px-4 font-['Space_Grotesk'] tracking-tight shadow-2xl shadow-black/50 sticky top-0">
+<div class="mb-10 px-2">
+<h1 class="text-lg font-bold text-stone-100 tracking-widest uppercase">Artisan Admin</h1>
+<p class="text-[10px] text-stone-500 uppercase tracking-[0.2em] mt-1">Engineering Studio</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-3 py-3 text-stone-500 hover:text-stone-200 transition-colors hover:bg-stone-800/50 transition-all duration-300 cubic-bezier(0.4, 0, 0.2, 1) transform hover:translate-x-1" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 text-stone-500 hover:text-stone-200 transition-colors hover:bg-stone-800/50 transition-all duration-300 cubic-bezier(0.4, 0, 0.2, 1) transform hover:translate-x-1" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="text-sm font-medium">Projects</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 text-stone-500 hover:text-stone-200 transition-colors hover:bg-stone-800/50 transition-all duration-300 cubic-bezier(0.4, 0, 0.2, 1) transform hover:translate-x-1" href="#">
+<span class="material-symbols-outlined">work_history</span>
+<span class="text-sm font-medium">Experience</span>
+</a>
+<!-- Active State: Certificates -->
+<a class="flex items-center gap-3 px-3 py-3 text-emerald-200 border-r-2 border-emerald-400 bg-emerald-950/20 cubic-bezier(0.4, 0, 0.2, 1) transform translate-x-1" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+<span class="text-sm font-bold">Certificates</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 text-stone-500 hover:text-stone-200 transition-colors hover:bg-stone-800/50 transition-all duration-300 cubic-bezier(0.4, 0, 0.2, 1) transform hover:translate-x-1" href="#">
+<span class="material-symbols-outlined">mail</span>
+<span class="text-sm font-medium">Messages</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 text-stone-500 hover:text-stone-200 transition-colors hover:bg-stone-800/50 transition-all duration-300 cubic-bezier(0.4, 0, 0.2, 1) transform hover:translate-x-1" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-sm font-medium">Settings</span>
+</a>
+</nav>
+<div class="mt-auto pt-6 border-t border-stone-800/30">
+<button class="w-full py-3 bg-primary text-on-primary font-bold text-xs uppercase tracking-widest rounded-lg flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-sm">add</span>
+                New Project
+            </button>
+<div class="mt-6 flex items-center gap-3 px-2">
+<img alt="User profile picture" class="w-8 h-8 rounded-full border border-stone-700" data-alt="A professional portrait of a male software architect with a focused expression, set in a moody, dimly lit engineering studio with soft backlighting. The aesthetic is clean and high-end, utilizing a palette of deep charcoals and warm timber tones, reflecting a master artisan at work." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZhu7Gc1XofFuDD9v58_av65Sj7HRuxTOqizi1fxFLWaOPag6Bfo30Umv5pqFuBU_mslV1nZyEAWv2TS6WpY32ohFQEyAWzumjxl74naZ3rD-FyTW8MephcXWXeFX7iFR9v_Qo3KtnZ5hAFCg1pgCgCBeWzNvyL4B0vuuMFLcf-gglYnKd60ubfLSD4vAZsmUcJkWyKQkB_WktPHjR7dWc8JlTj_6bt0RVamby-fP3hdvpgXsMzQkhduiw-hjsVmERl1RFDgU5X_xZ"/>
+<div class="overflow-hidden">
+<p class="text-xs font-bold text-stone-200 truncate">Alex Rivera</p>
+<p class="text-[10px] text-stone-500 truncate">Lead Engineer</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col min-w-0">
+<!-- TopNavBar (Shared Component JSON Mapping) -->
+<header class="w-full h-16 sticky top-0 z-50 bg-stone-950/40 backdrop-blur-md border-b border-stone-800/20 flex justify-between items-center px-8 font-['Inter'] text-sm uppercase tracking-widest">
+<div class="flex items-center gap-6 flex-1">
+<div class="relative w-full max-w-md group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-stone-500 text-lg">search</span>
+<input class="w-full bg-stone-900/50 border-none rounded-lg pl-10 pr-4 py-2 text-xs focus:ring-1 focus:ring-emerald-500/30 text-stone-200 placeholder-stone-600 transition-all" placeholder="Search components..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<button class="text-stone-400 hover:text-emerald-200 transition-all">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="text-stone-400 hover:text-emerald-200 transition-all">
+<span class="material-symbols-outlined">dark_mode</span>
+</button>
+<div class="h-4 w-[1px] bg-stone-800 mx-2"></div>
+<span class="text-emerald-100 font-bold">Editorial Engineering</span>
+</div>
+</header>
+<!-- Page Canvas -->
+<div class="p-8 space-y-12">
+<!-- Header Section -->
+<div class="flex justify-between items-end">
+<div>
+<h2 class="font-headline text-4xl font-bold tracking-tight text-on-surface">Skills &amp; Certificates <span class="text-primary-fixed-dim">Management</span></h2>
+<p class="text-on-surface-variant font-body text-sm mt-2 tracking-wide">Curate and verify your technical arsenal and professional accolades.</p>
+</div>
+<button class="bg-primary text-on-primary px-6 py-3 rounded-lg font-headline font-bold text-sm tracking-widest uppercase hover:bg-primary-fixed transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined">add_circle</span>
+                    Add New Entry
+                </button>
+</div>
+<!-- Stats Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-surface-container-low p-6 rounded-lg border border-outline-variant/10 group hover:bg-surface-container-high transition-all duration-300">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-primary-fixed-dim bg-primary-container/20 p-2 rounded">psychology</span>
+<span class="text-[10px] font-bold text-stone-500 uppercase tracking-widest">Growth +12%</span>
+</div>
+<div class="mt-4">
+<h4 class="text-3xl font-headline font-bold text-on-surface">24</h4>
+<p class="text-xs text-on-surface-variant uppercase tracking-widest mt-1">Total Skills</p>
+</div>
+</div>
+<div class="bg-surface-container-low p-6 rounded-lg border border-outline-variant/10 group hover:bg-surface-container-high transition-all duration-300">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-primary-fixed-dim bg-primary-container/20 p-2 rounded">verified_user</span>
+<span class="text-[10px] font-bold text-emerald-400 uppercase tracking-widest font-body">All Current</span>
+</div>
+<div class="mt-4">
+<h4 class="text-3xl font-headline font-bold text-on-surface">12</h4>
+<p class="text-xs text-on-surface-variant uppercase tracking-widest mt-1">Verified Certificates</p>
+</div>
+</div>
+<div class="bg-surface-container-low p-6 rounded-lg border border-outline-variant/10 group hover:bg-surface-container-high transition-all duration-300">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-primary-fixed-dim bg-primary-container/20 p-2 rounded">update</span>
+</div>
+<div class="mt-4">
+<h4 class="text-xl font-headline font-bold text-on-surface">Oct 24, 2023</h4>
+<p class="text-xs text-on-surface-variant uppercase tracking-widest mt-1">Last Updated</p>
+</div>
+</div>
+</div>
+<!-- Skills Bento Grid -->
+<section class="space-y-6">
+<div class="flex items-center gap-4">
+<h3 class="text-sm font-bold uppercase tracking-[0.3em] text-stone-500">Skill Categories</h3>
+<div class="flex-1 h-[1px] bg-stone-800/50"></div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<!-- Frontend Category -->
+<div class="bg-surface-container p-8 rounded-lg space-y-6">
+<div class="flex justify-between items-center">
+<h4 class="font-headline text-lg font-bold text-primary">Frontend Architecture</h4>
+<span class="text-[10px] bg-surface-container-highest px-2 py-1 rounded text-on-surface-variant">8 Skills</span>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="bg-surface-container-highest px-4 py-1.5 rounded-full text-xs font-medium text-on-surface-variant flex items-center gap-2 group cursor-pointer hover:text-on-surface">
+                                React.js <span class="material-symbols-outlined text-[14px] opacity-0 group-hover:opacity-100 transition-opacity">edit</span>
+</span>
+<span class="bg-surface-container-highest px-4 py-1.5 rounded-full text-xs font-medium text-on-surface-variant flex items-center gap-2 group cursor-pointer hover:text-on-surface">
+                                TypeScript <span class="material-symbols-outlined text-[14px] opacity-0 group-hover:opacity-100 transition-opacity">edit</span>
+</span>
+<span class="bg-surface-container-highest px-4 py-1.5 rounded-full text-xs font-medium text-on-surface-variant flex items-center gap-2 group cursor-pointer hover:text-on-surface">
+                                Tailwind CSS <span class="material-symbols-outlined text-[14px] opacity-0 group-hover:opacity-100 transition-opacity">edit</span>
+</span>
+<span class="bg-surface-container-highest px-4 py-1.5 rounded-full text-xs font-medium text-on-surface-variant flex items-center gap-2 group cursor-pointer hover:text-on-surface">
+                                Next.js <span class="material-symbols-outlined text-[14px] opacity-0 group-hover:opacity-100 transition-opacity">edit</span>
+</span>
+</div>
+</div>
+<!-- Backend Category -->
+<div class="bg-surface-container p-8 rounded-lg space-y-6">
+<div class="flex justify-between items-center">
+<h4 class="font-headline text-lg font-bold text-primary">Systems &amp; API</h4>
+<span class="text-[10px] bg-surface-container-highest px-2 py-1 rounded text-on-surface-variant">10 Skills</span>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="bg-surface-container-highest px-4 py-1.5 rounded-full text-xs font-medium text-on-surface-variant flex items-center gap-2 group cursor-pointer hover:text-on-surface">
+                                Node.js <span class="material-symbols-outlined text-[14px] opacity-0 group-hover:opacity-100 transition-opacity">edit</span>
+</span>
+<span class="bg-surface-container-highest px-4 py-1.5 rounded-full text-xs font-medium text-on-surface-variant flex items-center gap-2 group cursor-pointer hover:text-on-surface">
+                                PostgreSQL <span class="material-symbols-outlined text-[14px] opacity-0 group-hover:opacity-100 transition-opacity">edit</span>
+</span>
+<span class="bg-surface-container-highest px-4 py-1.5 rounded-full text-xs font-medium text-on-surface-variant flex items-center gap-2 group cursor-pointer hover:text-on-surface">
+                                GraphQL <span class="material-symbols-outlined text-[14px] opacity-0 group-hover:opacity-100 transition-opacity">edit</span>
+</span>
+<span class="bg-surface-container-highest px-4 py-1.5 rounded-full text-xs font-medium text-on-surface-variant flex items-center gap-2 group cursor-pointer hover:text-on-surface">
+                                Docker <span class="material-symbols-outlined text-[14px] opacity-0 group-hover:opacity-100 transition-opacity">edit</span>
+</span>
+</div>
+</div>
+<!-- Design Category -->
+<div class="bg-surface-container p-8 rounded-lg space-y-6">
+<div class="flex justify-between items-center">
+<h4 class="font-headline text-lg font-bold text-primary">Visual Design</h4>
+<span class="text-[10px] bg-surface-container-highest px-2 py-1 rounded text-on-surface-variant">6 Skills</span>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="bg-surface-container-highest px-4 py-1.5 rounded-full text-xs font-medium text-on-surface-variant flex items-center gap-2 group cursor-pointer hover:text-on-surface">
+                                Figma <span class="material-symbols-outlined text-[14px] opacity-0 group-hover:opacity-100 transition-opacity">edit</span>
+</span>
+<span class="bg-surface-container-highest px-4 py-1.5 rounded-full text-xs font-medium text-on-surface-variant flex items-center gap-2 group cursor-pointer hover:text-on-surface">
+                                Prototyping <span class="material-symbols-outlined text-[14px] opacity-0 group-hover:opacity-100 transition-opacity">edit</span>
+</span>
+<span class="bg-surface-container-highest px-4 py-1.5 rounded-full text-xs font-medium text-on-surface-variant flex items-center gap-2 group cursor-pointer hover:text-on-surface">
+                                Design Systems <span class="material-symbols-outlined text-[14px] opacity-0 group-hover:opacity-100 transition-opacity">edit</span>
+</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Certificates Management Section -->
+<section class="space-y-6">
+<div class="flex items-center gap-4">
+<h3 class="text-sm font-bold uppercase tracking-[0.3em] text-stone-500">Verified Credentials</h3>
+<div class="flex-1 h-[1px] bg-stone-800/50"></div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-separate border-spacing-y-3">
+<thead>
+<tr class="text-[10px] uppercase tracking-widest text-stone-500 font-label">
+<th class="px-6 py-4 font-bold">Credential Name</th>
+<th class="px-6 py-4 font-bold">Issuing Organization</th>
+<th class="px-6 py-4 font-bold">Issue Date</th>
+<th class="px-6 py-4 font-bold">Credential ID</th>
+<th class="px-6 py-4 text-right font-bold">Actions</th>
+</tr>
+</thead>
+<tbody>
+<!-- Row 1 -->
+<tr class="bg-surface-container-low hover:bg-surface-container transition-colors group">
+<td class="px-6 py-5 rounded-l-lg">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-surface-container-highest rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-xl">verified</span>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">AWS Certified Solutions Architect</p>
+<p class="text-[10px] text-stone-500 mt-0.5">Professional Certification</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5 text-sm text-on-surface-variant">Amazon Web Services</td>
+<td class="px-6 py-5 text-sm text-on-surface-variant">Sep 2023</td>
+<td class="px-6 py-5 font-mono text-xs text-stone-500">AWS-ASA-99421</td>
+<td class="px-6 py-5 rounded-r-lg text-right">
+<div class="flex justify-end gap-3">
+<button class="text-stone-500 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-xl">visibility</span>
+</button>
+<button class="text-stone-500 hover:text-error transition-colors">
+<span class="material-symbols-outlined text-xl">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="bg-surface-container-low hover:bg-surface-container transition-colors group">
+<td class="px-6 py-5 rounded-l-lg">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-surface-container-highest rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-xl">verified</span>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">Google Cloud Engineer</p>
+<p class="text-[10px] text-stone-500 mt-0.5">Associate Certification</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5 text-sm text-on-surface-variant">Google Cloud</td>
+<td class="px-6 py-5 text-sm text-on-surface-variant">Jan 2023</td>
+<td class="px-6 py-5 font-mono text-xs text-stone-500">GCP-ACE-11029</td>
+<td class="px-6 py-5 rounded-r-lg text-right">
+<div class="flex justify-end gap-3">
+<button class="text-stone-500 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-xl">visibility</span>
+</button>
+<button class="text-stone-500 hover:text-error transition-colors">
+<span class="material-symbols-outlined text-xl">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="bg-surface-container-low hover:bg-surface-container transition-colors group">
+<td class="px-6 py-5 rounded-l-lg">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-surface-container-highest rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-xl">verified</span>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">Advanced UI Engineering</p>
+<p class="text-[10px] text-stone-500 mt-0.5">Professional Diploma</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5 text-sm text-on-surface-variant">Frontend Masters</td>
+<td class="px-6 py-5 text-sm text-on-surface-variant">Jun 2022</td>
+<td class="px-6 py-5 font-mono text-xs text-stone-500">FM-DIP-4831</td>
+<td class="px-6 py-5 rounded-r-lg text-right">
+<div class="flex justify-end gap-3">
+<button class="text-stone-500 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-xl">visibility</span>
+</button>
+<button class="text-stone-500 hover:text-error transition-colors">
+<span class="material-symbols-outlined text-xl">delete</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</div>
+<!-- Subtle background decoration -->
+<div class="fixed bottom-0 right-0 p-12 pointer-events-none opacity-5">
+<h1 class="text-[20rem] font-headline font-extrabold leading-none select-none">ARTISAN</h1>
+</div>
+</main>
+</body></html>

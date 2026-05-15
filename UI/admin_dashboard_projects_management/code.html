@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Projects Management | Artisan Admin</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed-dim": "#dbc3a8",
+                    "on-primary-fixed": "#121f12",
+                    "tertiary-container": "#5b442a",
+                    "inverse-on-surface": "#2f3133",
+                    "on-primary-container": "#acbca9",
+                    "surface-variant": "#333537",
+                    "on-tertiary-container": "#d3b291",
+                    "on-secondary": "#3c2e1b",
+                    "on-secondary-fixed-variant": "#544430",
+                    "on-secondary-fixed": "#261908",
+                    "tertiary-fixed-dim": "#e3c19f",
+                    "tertiary": "#e3c19f",
+                    "surface-container-high": "#282a2c",
+                    "surface-tint": "#bbcbb7",
+                    "on-background": "#e2e2e5",
+                    "background": "#121416",
+                    "surface-container-highest": "#333537",
+                    "error": "#ffb4ab",
+                    "surface-container": "#1e2022",
+                    "surface-container-low": "#1a1c1e",
+                    "surface-dim": "#121416",
+                    "secondary-container": "#574632",
+                    "on-secondary-container": "#ccb59b",
+                    "surface": "#121416",
+                    "on-tertiary": "#412c14",
+                    "outline": "#8e928b",
+                    "outline-variant": "#444842",
+                    "on-surface-variant": "#c4c8c0",
+                    "error-container": "#93000a",
+                    "tertiary-fixed": "#ffddbb",
+                    "on-surface": "#e2e2e5",
+                    "on-primary": "#263426",
+                    "surface-bright": "#37393b",
+                    "on-tertiary-fixed": "#291803",
+                    "inverse-surface": "#e2e2e5",
+                    "inverse-primary": "#546252",
+                    "on-tertiary-fixed-variant": "#5a4229",
+                    "primary-container": "#3e4c3d",
+                    "on-error": "#690005",
+                    "on-error-container": "#ffdad6",
+                    "secondary": "#dbc3a8",
+                    "surface-container-lowest": "#0c0e10",
+                    "primary-fixed": "#d7e7d3",
+                    "primary": "#bbcbb7",
+                    "on-primary-fixed-variant": "#3c4a3b",
+                    "secondary-fixed": "#f8dec3",
+                    "primary-fixed-dim": "#bbcbb7"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Space Grotesk"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #121416;
+            color: #e2e2e5;
+        }
+        h1, h2, h3, .font-headline {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+    </style>
+</head>
+<body class="flex min-h-screen">
+<!-- SideNavBar Component -->
+<aside class="h-screen w-64 border-r border-stone-800/30 bg-stone-950/60 backdrop-blur-xl shadow-2xl shadow-black/50 flex flex-col py-8 px-4 font-['Space_Grotesk'] tracking-tight sticky top-0">
+<div class="mb-10 px-2">
+<h1 class="text-lg font-bold text-stone-100 tracking-widest uppercase">Artisan Admin</h1>
+<p class="text-[10px] text-stone-500 uppercase tracking-[0.2em] mt-1">Engineering Studio</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-stone-500 hover:text-stone-200 transition-all duration-300 hover:bg-stone-800/50 group" href="#">
+<span class="material-symbols-outlined text-[20px]">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-emerald-200 border-r-2 border-emerald-400 bg-emerald-950/20 group transform translate-x-1" href="#">
+<span class="material-symbols-outlined text-[20px]">inventory_2</span>
+<span class="text-sm font-medium">Projects</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-500 hover:text-stone-200 transition-all duration-300 hover:bg-stone-800/50 group" href="#">
+<span class="material-symbols-outlined text-[20px]">work_history</span>
+<span class="text-sm font-medium">Experience</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-500 hover:text-stone-200 transition-all duration-300 hover:bg-stone-800/50 group" href="#">
+<span class="material-symbols-outlined text-[20px]">workspace_premium</span>
+<span class="text-sm font-medium">Certificates</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-500 hover:text-stone-200 transition-all duration-300 hover:bg-stone-800/50 group" href="#">
+<span class="material-symbols-outlined text-[20px]">mail</span>
+<span class="text-sm font-medium">Messages</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-500 hover:text-stone-200 transition-all duration-300 hover:bg-stone-800/50 group" href="#">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+<span class="text-sm font-medium">Settings</span>
+</a>
+</nav>
+<div class="mt-auto px-2 pb-4">
+<button class="w-full py-3 bg-primary text-on-primary text-xs font-bold uppercase tracking-widest rounded-lg hover:brightness-110 transition-all shadow-lg shadow-primary/10">
+                New Project
+            </button>
+</div>
+<div class="pt-6 border-t border-stone-800/30 flex items-center gap-3 px-2">
+<img alt="User profile picture" class="w-10 h-10 rounded-full object-cover" data-alt="Close-up professional portrait of a male creative director in a dark studio setting with soft side lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnr--kCi66Rzd-Z7mIvkek2nbrJG5qe83O92pvMUAVzmUCNfPf32Ks9XdXfoPmaWgZJRifnCtSaZ89bj-G9X05us_KaWL7sQA7gocPLrBW6_JNWZajLnji2rUNz6lymh4sNfQxhHjZM_CbCUphXJeP5HzcJJCvDoG77of8DsICvkYqeYT_4_6QOkRKgeOc9rN6qbelYM1vJYWA66nfLEKDZjupm5CPbAiEFsX2zQ6GBiAm14Y_73f-DfUDfV8Sab9LqCaAAasQJmpy"/>
+<div>
+<p class="text-sm font-bold text-stone-100">Alex Rivers</p>
+<p class="text-[10px] text-stone-500">Admin Access</p>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col min-w-0 bg-surface">
+<!-- TopNavBar Component -->
+<header class="w-full h-16 sticky top-0 z-50 bg-stone-950/40 backdrop-blur-md border-b border-stone-800/20 flex justify-between items-center px-8">
+<div class="flex items-center gap-6 flex-1">
+<div class="relative max-w-md w-full focus-within:ring-1 focus-within:ring-emerald-500/30 transition-all">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-stone-500 text-lg">search</span>
+<input class="w-full bg-stone-900/50 border-none text-[10px] tracking-widest text-emerald-100 placeholder:text-stone-600 pl-10 h-9 rounded-sm focus:ring-0" placeholder="SEARCH PROJECTS..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-5">
+<button class="text-stone-400 hover:text-emerald-200 transition-all">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="text-stone-400 hover:text-emerald-200 transition-all">
+<span class="material-symbols-outlined">dark_mode</span>
+</button>
+<div class="h-4 w-[1px] bg-stone-800"></div>
+<img alt="Administrator profile avatar" class="w-8 h-8 rounded-full border border-stone-800 object-cover" data-alt="Small circular profile avatar of a professional architect in dark clothing, blurred office background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAODoSgfl5xPFJ_vruxVHo2S3RSZjxsrMlbGVFIww9WNlzkVo3dykhhntpBvw2nhOH3Wwqz6dbhMIswWg0Rt__vz9MqmPGDqUAnHbVSsC8h9gzkXRhVsQTj4wy9On6edUWndbRvF7a0zkR40ki1YRseqFDBifqDoefwlS7ij3sjBxsST75Ad0_RQ1ukV0-YhjLUjvul5JpielI1EoiiuYLSCdqu2Ft3mxT8-qtBpGuLmoiH23e01tdvyPudQlasOgzuqFKi4G-MLV2E"/>
+</div>
+</header>
+<!-- Content Canvas -->
+<div class="p-8 max-w-7xl mx-auto w-full space-y-8">
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<span class="text-[10px] font-bold text-primary tracking-[0.3em] uppercase mb-2 block">Studio Inventory</span>
+<h2 class="text-4xl font-bold tracking-tight text-on-surface headline-lg">Projects Management</h2>
+</div>
+<button class="inline-flex items-center gap-2 px-6 py-3 bg-primary text-on-primary font-bold text-xs uppercase tracking-widest rounded transition-all hover:translate-y-[-2px] hover:shadow-xl hover:shadow-primary/20">
+<span class="material-symbols-outlined text-lg">add</span>
+                    Add New Project
+                </button>
+</div>
+<!-- Stats Bar (Bento-style) -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+<div class="bg-surface-container-low p-6 rounded-lg transition-all hover:bg-surface-container-high">
+<p class="text-[10px] text-stone-500 uppercase tracking-widest mb-1">Total Scale</p>
+<p class="text-3xl font-bold text-on-surface">24</p>
+<p class="text-[10px] text-emerald-400 mt-2 font-medium">Inventory Projects</p>
+</div>
+<div class="bg-surface-container-low p-6 rounded-lg transition-all hover:bg-surface-container-high">
+<p class="text-[10px] text-stone-500 uppercase tracking-widest mb-1">Live Online</p>
+<p class="text-3xl font-bold text-on-surface text-emerald-200">18</p>
+<p class="text-[10px] text-stone-500 mt-2 font-medium">Currently Published</p>
+</div>
+<div class="bg-surface-container-low p-6 rounded-lg transition-all hover:bg-surface-container-high">
+<p class="text-[10px] text-stone-500 uppercase tracking-widest mb-1">In Development</p>
+<p class="text-3xl font-bold text-on-surface text-secondary-fixed-dim">04</p>
+<p class="text-[10px] text-stone-500 mt-2 font-medium">Active Drafts</p>
+</div>
+<div class="bg-surface-container-low p-6 rounded-lg transition-all hover:bg-surface-container-high">
+<p class="text-[10px] text-stone-500 uppercase tracking-widest mb-1">Archived</p>
+<p class="text-3xl font-bold text-on-surface">02</p>
+<p class="text-[10px] text-stone-500 mt-2 font-medium">Legacy Systems</p>
+</div>
+</div>
+<!-- Filter Sub-bar -->
+<div class="flex flex-col md:flex-row gap-4 items-center justify-between bg-surface-container-highest/30 p-4 rounded-lg">
+<div class="flex gap-2 w-full md:w-auto">
+<button class="px-4 py-2 bg-primary-container text-on-primary-container text-[10px] font-bold uppercase tracking-widest rounded">All Status</button>
+<button class="px-4 py-2 hover:bg-stone-800 transition-all text-stone-400 text-[10px] font-bold uppercase tracking-widest rounded">Published</button>
+<button class="px-4 py-2 hover:bg-stone-800 transition-all text-stone-400 text-[10px] font-bold uppercase tracking-widest rounded">Drafts</button>
+</div>
+<div class="flex items-center gap-4 w-full md:w-auto">
+<span class="text-[10px] text-stone-500 uppercase tracking-widest whitespace-nowrap">Sort By: Newest</span>
+<button class="p-2 bg-stone-900 rounded hover:bg-stone-800 transition-colors">
+<span class="material-symbols-outlined text-stone-400">filter_list</span>
+</button>
+</div>
+</div>
+<!-- Projects Table -->
+<div class="bg-surface-container-lowest rounded-lg overflow-hidden border border-stone-800/10">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-stone-950/40">
+<th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-stone-500 border-b border-stone-800/30">Project Details</th>
+<th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-stone-500 border-b border-stone-800/30">Status</th>
+<th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-stone-500 border-b border-stone-800/30">Technologies</th>
+<th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-stone-500 border-b border-stone-800/30">Last Updated</th>
+<th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-stone-500 border-b border-stone-800/30 text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-stone-800/20">
+<!-- Project Row 1 -->
+<tr class="hover:bg-stone-900/40 transition-colors group">
+<td class="px-6 py-5">
+<div class="flex items-center gap-4">
+<div class="w-14 h-14 bg-stone-800 rounded overflow-hidden flex-shrink-0 border border-stone-700/30 group-hover:border-primary/30 transition-all">
+<img alt="Boutique CRM Engine" class="w-full h-full object-cover opacity-80" data-alt="Minimalist abstract dark blue UI dashboard showing data visualization charts on a dark interface background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4LR9vmNqP1Q5QueD1xvSOFvCD4bTBxafxUPTGI47DZKO5S_fNkYtS5aUutw1ZRY9w9a2TL4guJCdBhzJllNM347OlJtT43BsiHdBFR77cAp8kOPzxfW_xWr486WYj28E2fYrxJ3rAIrRkz9yRfHQNtKoZhjP1Je0thZMoDUoq_p0zjOdr9GXnDGjiohUlvUDwEolAnxVWWcAyc3G3b4XT0aBZFZaiy9EOKmWAfm_3fGExKmXYX2UH-Z9nklNyRgujfO6IXuJsNTjZ"/>
+</div>
+<div>
+<h4 class="font-headline font-bold text-on-surface group-hover:text-emerald-200 transition-colors">Boutique CRM Engine</h4>
+<p class="text-xs text-stone-500 mt-1">High-fidelity customer management platform.</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="px-2 py-1 bg-emerald-950/40 text-emerald-400 text-[10px] font-bold uppercase tracking-wider rounded border border-emerald-500/20">Published</span>
+</td>
+<td class="px-6 py-5">
+<div class="flex flex-wrap gap-2">
+<span class="px-2 py-0.5 bg-stone-800 text-stone-400 text-[10px] rounded-full">Next.js</span>
+<span class="px-2 py-0.5 bg-stone-800 text-stone-400 text-[10px] rounded-full">Tailwind</span>
+<span class="px-2 py-0.5 bg-stone-800 text-stone-400 text-[10px] rounded-full">Prisma</span>
+</div>
+</td>
+<td class="px-6 py-5 text-xs text-stone-400">Oct 24, 2023</td>
+<td class="px-6 py-5 text-right space-x-1">
+<button class="p-2 hover:bg-stone-800 rounded transition-colors group/btn">
+<span class="material-symbols-outlined text-stone-500 group-hover/btn:text-emerald-400 text-lg">edit</span>
+</button>
+<button class="p-2 hover:bg-stone-800 rounded transition-colors group/btn">
+<span class="material-symbols-outlined text-stone-500 group-hover/btn:text-error text-lg">delete</span>
+</button>
+<button class="p-2 hover:bg-stone-800 rounded transition-colors group/btn">
+<span class="material-symbols-outlined text-stone-500 group-hover/btn:text-on-surface text-lg">open_in_new</span>
+</button>
+</td>
+</tr>
+<!-- Project Row 2 -->
+<tr class="hover:bg-stone-900/40 transition-colors group">
+<td class="px-6 py-5">
+<div class="flex items-center gap-4">
+<div class="w-14 h-14 bg-stone-800 rounded overflow-hidden flex-shrink-0 border border-stone-700/30 group-hover:border-primary/30 transition-all">
+<img alt="Artisan UI Components" class="w-full h-full object-cover opacity-80" data-alt="Abstract composition of geometric shapes and glass-like translucent textures in shades of sage and slate" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7PcdbC4tkYcLEbMLuqVOMzDDR59QCyaGtk0fPqqPRuUkocGpqW3NfoQ4h6VA3jGefXcqgQk3wLspE6sT5HVb1QrVt9rAsRekNqiJOx59oBG-6BXKIaKpMbYSwsDGVlcDYua3ns12roUxY-qG9-TCYsxg0c9l1bPsvDvmBARc9ehEauAGljZScCFRKZwDNR3OaCDevcwomw4JU1wrEQDS7HRXsgwyFYT6pIdMcT0W46xIyQxKs16Q8aTjfgdy3KBlrQPyawKEKp8LR"/>
+</div>
+<div>
+<h4 class="font-headline font-bold text-on-surface group-hover:text-emerald-200 transition-colors">Artisan UI Components</h4>
+<p class="text-xs text-stone-500 mt-1">Design system library for modern engineering.</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="px-2 py-1 bg-stone-800 text-stone-500 text-[10px] font-bold uppercase tracking-wider rounded border border-stone-700/30">Draft</span>
+</td>
+<td class="px-6 py-5">
+<div class="flex flex-wrap gap-2">
+<span class="px-2 py-0.5 bg-stone-800 text-stone-400 text-[10px] rounded-full">React</span>
+<span class="px-2 py-0.5 bg-stone-800 text-stone-400 text-[10px] rounded-full">Framer</span>
+</div>
+</td>
+<td class="px-6 py-5 text-xs text-stone-400">Nov 02, 2023</td>
+<td class="px-6 py-5 text-right space-x-1">
+<button class="p-2 hover:bg-stone-800 rounded transition-colors group/btn">
+<span class="material-symbols-outlined text-stone-500 group-hover/btn:text-emerald-400 text-lg">edit</span>
+</button>
+<button class="p-2 hover:bg-stone-800 rounded transition-colors group/btn">
+<span class="material-symbols-outlined text-stone-500 group-hover/btn:text-error text-lg">delete</span>
+</button>
+<button class="p-2 hover:bg-stone-800 rounded transition-colors group/btn">
+<span class="material-symbols-outlined text-stone-500 group-hover/btn:text-on-surface text-lg">open_in_new</span>
+</button>
+</td>
+</tr>
+<!-- Project Row 3 -->
+<tr class="hover:bg-stone-900/40 transition-colors group">
+<td class="px-6 py-5">
+<div class="flex items-center gap-4">
+<div class="w-14 h-14 bg-stone-800 rounded overflow-hidden flex-shrink-0 border border-stone-700/30 group-hover:border-primary/30 transition-all">
+<img alt="Neural Net Visualizer" class="w-full h-full object-cover opacity-80" data-alt="Technical illustration of glowing neural network paths and nodes on a dark, textured background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_bsmRDu9lfdYk6yLGT80JnjI9otXld_CTZ9BObp3WUXq8SkFRR4t3Dhd5h8mfc9wrShjQlFOJHDw8_Gr6WtSPYHMqIHk25yPLiTFCu1FRmUA1Lcr7iFFHFzALsO8SyjveTctX9OrergB1q3HLgIZSukVuMAdmc9T_9vaI7Euc_M7cVG8DFxoYpOFXI-B2bP7rLBHrJc97OAh8gOUM6SlEVLFSLCkFU-I7tKm7WbKkmKWCeTnlJ1MOrd_QMgrP52hVjl2yt4b6-dh0"/>
+</div>
+<div>
+<h4 class="font-headline font-bold text-on-surface group-hover:text-emerald-200 transition-colors">Neural Net Visualizer</h4>
+<p class="text-xs text-stone-500 mt-1">Interactive graph visualization of ML models.</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="px-2 py-1 bg-emerald-950/40 text-emerald-400 text-[10px] font-bold uppercase tracking-wider rounded border border-emerald-500/20">Published</span>
+</td>
+<td class="px-6 py-5">
+<div class="flex flex-wrap gap-2">
+<span class="px-2 py-0.5 bg-stone-800 text-stone-400 text-[10px] rounded-full">D3.js</span>
+<span class="px-2 py-0.5 bg-stone-800 text-stone-400 text-[10px] rounded-full">Python</span>
+<span class="px-2 py-0.5 bg-stone-800 text-stone-400 text-[10px] rounded-full">Vue</span>
+</div>
+</td>
+<td class="px-6 py-5 text-xs text-stone-400">Oct 12, 2023</td>
+<td class="px-6 py-5 text-right space-x-1">
+<button class="p-2 hover:bg-stone-800 rounded transition-colors group/btn">
+<span class="material-symbols-outlined text-stone-500 group-hover/btn:text-emerald-400 text-lg">edit</span>
+</button>
+<button class="p-2 hover:bg-stone-800 rounded transition-colors group/btn">
+<span class="material-symbols-outlined text-stone-500 group-hover/btn:text-error text-lg">delete</span>
+</button>
+<button class="p-2 hover:bg-stone-800 rounded transition-colors group/btn">
+<span class="material-symbols-outlined text-stone-500 group-hover/btn:text-on-surface text-lg">open_in_new</span>
+</button>
+</td>
+</tr>
+<!-- Project Row 4 -->
+<tr class="hover:bg-stone-900/40 transition-colors group">
+<td class="px-6 py-5">
+<div class="flex items-center gap-4">
+<div class="w-14 h-14 bg-stone-800 rounded overflow-hidden flex-shrink-0 border border-stone-700/30 group-hover:border-primary/30 transition-all">
+<img alt="Espresso Admin" class="w-full h-full object-cover opacity-80" data-alt="Top down photo of a clean workspace with a ceramic espresso cup on a dark stone desk alongside a laptop" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3eVxp4jwCZ248gUsqx47-XTiJxTqJQeUZiad1t1z11QKIS292tBqx_WUrpz2OubYiyp_npb4JSkFrKUb2nx5fbZFLjeAvFYZRA_VPLiHvC_RfWF0YrvytM0eUHaYQUTeUIHlVcCiGO3R7VYp4tOEE2cGg0Hoqp4SrsSC_Dk6PgN0LG98UFSrKwQZbMbCOPrSL3PTGMPl1G1yKZ07i7HSrliXn-SoAVSa8XUmv32knKH94Syo_3vG8BFdFTrJIMdjM3bEcJL-YQLUM"/>
+</div>
+<div>
+<h4 class="font-headline font-bold text-on-surface group-hover:text-emerald-200 transition-colors">Espresso Admin Shell</h4>
+<p class="text-xs text-stone-500 mt-1">Lightweight dashboard template for internal tools.</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="px-2 py-1 bg-tertiary-container/30 text-tertiary text-[10px] font-bold uppercase tracking-wider rounded border border-tertiary/20">Archived</span>
+</td>
+<td class="px-6 py-5">
+<div class="flex flex-wrap gap-2">
+<span class="px-2 py-0.5 bg-stone-800 text-stone-400 text-[10px] rounded-full">Svelte</span>
+<span class="px-2 py-0.5 bg-stone-800 text-stone-400 text-[10px] rounded-full">Go</span>
+</div>
+</td>
+<td class="px-6 py-5 text-xs text-stone-400">Sep 30, 2023</td>
+<td class="px-6 py-5 text-right space-x-1">
+<button class="p-2 hover:bg-stone-800 rounded transition-colors group/btn">
+<span class="material-symbols-outlined text-stone-500 group-hover/btn:text-emerald-400 text-lg">edit</span>
+</button>
+<button class="p-2 hover:bg-stone-800 rounded transition-colors group/btn">
+<span class="material-symbols-outlined text-stone-500 group-hover/btn:text-error text-lg">delete</span>
+</button>
+<button class="p-2 hover:bg-stone-800 rounded transition-colors group/btn">
+<span class="material-symbols-outlined text-stone-500 group-hover/btn:text-on-surface text-lg">open_in_new</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- Pagination -->
+<div class="p-6 bg-stone-950/40 flex justify-between items-center">
+<p class="text-[10px] text-stone-500 uppercase tracking-widest font-bold">Showing 4 of 24 projects</p>
+<div class="flex gap-2">
+<button class="px-3 py-1 bg-stone-900 border border-stone-800 text-[10px] font-bold uppercase tracking-widest text-stone-500 hover:text-stone-100 transition-colors">Previous</button>
+<button class="px-3 py-1 bg-stone-800 border border-stone-700 text-[10px] font-bold uppercase tracking-widest text-on-surface">Next</button>
+</div>
+</div>
+</div>
+<!-- Footer Meta -->
+<div class="flex justify-center pt-8">
+<p class="text-[10px] text-stone-600 uppercase tracking-[0.4em] font-medium">Artisan Admin • Projects Management System • v2.4.0</p>
+</div>
+</div>
+</main>
+</body></html>

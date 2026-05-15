@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Artisan Admin | Ibrahim Ezzeldin Portfolio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-low": "#1a1c1e",
+                    "on-secondary-fixed": "#261908",
+                    "on-background": "#e2e2e5",
+                    "primary": "#bbcbb7",
+                    "on-error": "#690005",
+                    "on-tertiary-fixed-variant": "#5a4229",
+                    "on-secondary-fixed-variant": "#544430",
+                    "inverse-primary": "#546252",
+                    "error": "#ffb4ab",
+                    "surface-tint": "#bbcbb7",
+                    "outline": "#8e928b",
+                    "primary-fixed": "#d7e7d3",
+                    "tertiary-container": "#5b442a",
+                    "surface-container-lowest": "#0c0e10",
+                    "secondary": "#dbc3a8",
+                    "on-primary-container": "#acbca9",
+                    "inverse-on-surface": "#2f3133",
+                    "on-tertiary": "#412c14",
+                    "on-secondary": "#3c2e1b",
+                    "primary-container": "#3e4c3d",
+                    "on-tertiary-fixed": "#291803",
+                    "surface-dim": "#121416",
+                    "outline-variant": "#444842",
+                    "tertiary-fixed": "#ffddbb",
+                    "on-primary-fixed": "#121f12",
+                    "inverse-surface": "#e2e2e5",
+                    "on-error-container": "#ffdad6",
+                    "surface-container": "#1e2022",
+                    "surface-bright": "#37393b",
+                    "on-surface-variant": "#c4c8c0",
+                    "surface-variant": "#333537",
+                    "on-surface": "#e2e2e5",
+                    "secondary-fixed-dim": "#dbc3a8",
+                    "secondary-fixed": "#f8dec3",
+                    "on-tertiary-container": "#d3b291",
+                    "tertiary-fixed-dim": "#e3c19f",
+                    "primary-fixed-dim": "#bbcbb7",
+                    "on-primary-fixed-variant": "#3c4a3b",
+                    "surface": "#121416",
+                    "surface-container-highest": "#333537",
+                    "surface-container-high": "#282a2c",
+                    "background": "#121416",
+                    "on-primary": "#263426",
+                    "secondary-container": "#574632",
+                    "error-container": "#93000a",
+                    "on-secondary-container": "#ccb59b",
+                    "tertiary": "#e3c19f"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Space Grotesk"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      body {
+        background-color: #121416;
+        color: #e2e2e5;
+        font-family: 'Inter', sans-serif;
+      }
+      .font-headline { font-family: 'Space Grotesk', sans-serif; }
+    </style>
+</head>
+<body class="flex min-h-screen">
+<!-- SideNavBar Component -->
+<aside class="hidden md:flex flex-col h-screen w-64 border-r border-stone-800/30 bg-stone-950/60 backdrop-blur-xl shadow-2xl shadow-black/50 py-8 px-4 font-['Space_Grotesk'] tracking-tight">
+<div class="mb-10 px-4">
+<h1 class="text-lg font-bold text-stone-100 tracking-widest uppercase">Artisan Admin</h1>
+<p class="text-xs text-stone-500 uppercase tracking-[0.2em] mt-1">Engineering Studio</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-emerald-200 border-r-2 border-emerald-400 bg-emerald-950/20 cubic-bezier(0.4, 0, 0.2, 1) transform hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-500 hover:text-stone-200 transition-all duration-300 hover:bg-stone-800/50" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span>Projects</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-500 hover:text-stone-200 transition-all duration-300 hover:bg-stone-800/50" href="#">
+<span class="material-symbols-outlined" data-icon="work_history">work_history</span>
+<span>Experience</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-500 hover:text-stone-200 transition-all duration-300 hover:bg-stone-800/50" href="#">
+<span class="material-symbols-outlined" data-icon="workspace_premium">workspace_premium</span>
+<span>Certificates</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-500 hover:text-stone-200 transition-all duration-300 hover:bg-stone-800/50" href="#">
+<span class="material-symbols-outlined" data-icon="mail">mail</span>
+<span>Messages</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-500 hover:text-stone-200 transition-all duration-300 hover:bg-stone-800/50" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+<div class="mt-auto px-4">
+<button class="w-full py-4 bg-primary text-on-primary font-bold text-sm uppercase tracking-widest hover:brightness-110 transition-all">
+                New Project
+            </button>
+<div class="mt-8 flex items-center gap-3">
+<img alt="User profile picture" class="w-10 h-10 rounded-full object-cover grayscale" data-alt="close-up portrait of a professional man with a creative, modern aesthetic in warm studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIPiRB4sV8q20k8GIJPiZkCrFGVFb9Iva8X801MuQtJjHd16P9xlNuHwF_I4iBghV7s5gyKO9j3ZRB_9mjNdfUqSIQKuJf0jQujTLNrZC_wqvtLrAxGvYq0RJ7iMFaf72pkVdmwfYuAP41A3qboRuXuv6C-hdWeOrwx6loKwVT2cj7edXdgO08l1B1UPj57e5r4p_KaJWzv0AFKAbOrkPdfALYqehLNsaHl1G8Ve9zjveZ8cjB4XuQPTogq1tgBbj4wwJgz4-uwDi0"/>
+<div>
+<p class="text-sm font-bold text-stone-100">Ibrahim E.</p>
+<p class="text-[10px] text-stone-500 uppercase tracking-tighter">Senior Engineer</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col min-h-screen bg-surface overflow-hidden">
+<!-- TopNavBar Component -->
+<header class="w-full h-16 sticky top-0 z-50 bg-stone-950/40 backdrop-blur-md border-b border-stone-800/20 flex justify-between items-center px-8 text-emerald-100 font-['Inter'] text-sm uppercase tracking-widest">
+<div class="flex items-center gap-6">
+<div class="relative group">
+<span class="absolute inset-y-0 left-0 pl-3 flex items-center text-stone-500 group-focus-within:text-emerald-400">
+<span class="material-symbols-outlined text-sm" data-icon="search">search</span>
+</span>
+<input class="bg-surface-container-highest border-none rounded-none py-1.5 pl-10 pr-4 text-xs focus:ring-1 focus:ring-emerald-500/30 transition-all w-64 placeholder:text-stone-600" placeholder="Search resources..." type="text"/>
+</div>
+<span class="text-stone-700">|</span>
+<span class="text-stone-400">Editorial Engineering</span>
+</div>
+<div class="flex items-center gap-5">
+<button class="hover:text-emerald-200 transition-all">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="hover:text-emerald-200 transition-all">
+<span class="material-symbols-outlined" data-icon="dark_mode">dark_mode</span>
+</button>
+<img alt="Administrator profile avatar" class="w-8 h-8 rounded-full border border-stone-800" data-alt="minimalist profile avatar of a developer in a dark grey turtleneck" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpwjTSxWb-vistMt875CBLV7DZEgQu6tSqhd1KKzVjMxvldy5_YzodksI5G1hyE-raQqStdnaGzD-E5u4xlNVXnexjvJk-Ry1Rl9O9yFU5ssf9edCSXHD9TFGPLT51YcMEYzTQauwG7BCRQnV6-eajTQWFarSXsTzsFUZUM5hQybiPx5sSfTaP7c2kQxzNFDMU1GebOZq2TJZyhfLBLNNQbAsFU6mFTsuoZc_YPZcRJKOq64L14o09zzshoL1RAli9J8dLs_rdgTfv"/>
+</div>
+</header>
+<!-- Canvas Content -->
+<div class="p-8 space-y-8 overflow-y-auto custom-scrollbar">
+<!-- Welcome Header -->
+<section class="flex flex-col gap-2">
+<p class="text-primary font-label text-[0.6875rem] uppercase tracking-[0.25em]">Dashboard Overview</p>
+<h2 class="text-4xl font-headline font-bold tracking-tight text-on-surface">Welcome back, Ibrahim</h2>
+<div class="h-1 w-24 bg-primary mt-2"></div>
+</section>
+<!-- Quick Stats Bento Grid -->
+<section class="grid grid-cols-1 md:grid-cols-4 gap-4">
+<div class="p-6 bg-surface-container-low transition-all duration-300 hover:bg-surface-container-high group">
+<p class="text-[0.6875rem] uppercase tracking-widest text-stone-500 mb-1">Total Projects</p>
+<p class="text-3xl font-headline font-bold text-primary group-hover:scale-105 transition-transform origin-left">12</p>
+</div>
+<div class="p-6 bg-surface-container-low transition-all duration-300 hover:bg-surface-container-high group">
+<p class="text-[0.6875rem] uppercase tracking-widest text-stone-500 mb-1">Active Inquiries</p>
+<p class="text-3xl font-headline font-bold text-secondary group-hover:scale-105 transition-transform origin-left">5</p>
+</div>
+<div class="p-6 bg-surface-container-low transition-all duration-300 hover:bg-surface-container-high group">
+<p class="text-[0.6875rem] uppercase tracking-widest text-stone-500 mb-1">Profile Views (30d)</p>
+<p class="text-3xl font-headline font-bold text-on-surface group-hover:scale-105 transition-transform origin-left">1.2k</p>
+</div>
+<div class="p-6 bg-surface-container-low transition-all duration-300 hover:bg-surface-container-high group">
+<p class="text-[0.6875rem] uppercase tracking-widest text-stone-500 mb-1">Last Update</p>
+<p class="text-lg font-headline font-bold text-stone-400 group-hover:scale-105 transition-transform origin-left">2 hours ago</p>
+</div>
+</section>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Recent Projects (2/3 width) -->
+<section class="lg:col-span-2 space-y-6">
+<div class="flex justify-between items-end">
+<h3 class="text-xl font-headline font-bold tracking-tight">Recent Projects</h3>
+<a class="text-[0.6875rem] uppercase tracking-widest text-primary hover:underline" href="#">View All</a>
+</div>
+<div class="bg-surface-container-low overflow-hidden">
+<table class="w-full text-left">
+<thead class="bg-surface-container-high/50 border-none">
+<tr>
+<th class="px-6 py-4 text-[0.6875rem] uppercase tracking-widest text-stone-500 font-medium">Project Name</th>
+<th class="px-6 py-4 text-[0.6875rem] uppercase tracking-widest text-stone-500 font-medium">Status</th>
+<th class="px-6 py-4 text-[0.6875rem] uppercase tracking-widest text-stone-500 font-medium text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-stone-800/20">
+<tr class="hover:bg-surface-container-high transition-colors">
+<td class="px-6 py-5">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 bg-stone-800 flex items-center justify-center">
+<span class="material-symbols-outlined text-stone-600" data-icon="terminal">terminal</span>
+</div>
+<div>
+<p class="text-sm font-semibold">Boutique CRM Engine</p>
+<p class="text-xs text-stone-500">Node.js, PostgreSQL</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="px-2 py-1 bg-emerald-950/30 text-emerald-400 text-[10px] font-bold uppercase tracking-widest border border-emerald-400/20">Published</span>
+</td>
+<td class="px-6 py-5 text-right">
+<div class="flex justify-end gap-3 text-stone-500">
+<button class="hover:text-primary transition-colors"><span class="material-symbols-outlined text-sm" data-icon="edit">edit</span></button>
+<button class="hover:text-error transition-colors"><span class="material-symbols-outlined text-sm" data-icon="delete">delete</span></button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-high transition-colors">
+<td class="px-6 py-5">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 bg-stone-800 flex items-center justify-center">
+<span class="material-symbols-outlined text-stone-600" data-icon="architecture">architecture</span>
+</div>
+<div>
+<p class="text-sm font-semibold">Artisan UI Components</p>
+<p class="text-xs text-stone-500">React, Tailwind</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="px-2 py-1 bg-amber-950/30 text-amber-400 text-[10px] font-bold uppercase tracking-widest border border-amber-400/20">Draft</span>
+</td>
+<td class="px-6 py-5 text-right">
+<div class="flex justify-end gap-3 text-stone-500">
+<button class="hover:text-primary transition-colors"><span class="material-symbols-outlined text-sm" data-icon="edit">edit</span></button>
+<button class="hover:text-error transition-colors"><span class="material-symbols-outlined text-sm" data-icon="delete">delete</span></button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-high transition-colors">
+<td class="px-6 py-5">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 bg-stone-800 flex items-center justify-center">
+<span class="material-symbols-outlined text-stone-600" data-icon="brush">brush</span>
+</div>
+<div>
+<p class="text-sm font-semibold">Minimalist Portfolio v3</p>
+<p class="text-xs text-stone-500">Next.js, Framer Motion</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="px-2 py-1 bg-emerald-950/30 text-emerald-400 text-[10px] font-bold uppercase tracking-widest border border-emerald-400/20">Published</span>
+</td>
+<td class="px-6 py-5 text-right">
+<div class="flex justify-end gap-3 text-stone-500">
+<button class="hover:text-primary transition-colors"><span class="material-symbols-outlined text-sm" data-icon="edit">edit</span></button>
+<button class="hover:text-error transition-colors"><span class="material-symbols-outlined text-sm" data-icon="delete">delete</span></button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Side Sidebar (Quick Actions & Inquiries) -->
+<section class="space-y-8">
+<!-- Quick Actions -->
+<div class="space-y-4">
+<h3 class="text-sm font-headline font-bold uppercase tracking-widest text-stone-500">Quick Actions</h3>
+<div class="grid grid-cols-1 gap-2">
+<button class="flex items-center justify-between p-4 bg-surface-container-highest transition-all duration-300 hover:bg-primary hover:text-on-primary group">
+<span class="text-xs font-bold uppercase tracking-widest">Add New Project</span>
+<span class="material-symbols-outlined text-lg" data-icon="add">add</span>
+</button>
+<button class="flex items-center justify-between p-4 bg-surface-container-highest transition-all duration-300 hover:bg-secondary hover:text-on-secondary-fixed group">
+<span class="text-xs font-bold uppercase tracking-widest">Update Resume</span>
+<span class="material-symbols-outlined text-lg" data-icon="upload_file">upload_file</span>
+</button>
+<button class="flex items-center justify-between p-4 bg-surface-container-highest transition-all duration-300 hover:bg-stone-200 hover:text-stone-900 group">
+<span class="text-xs font-bold uppercase tracking-widest">Change Theme</span>
+<span class="material-symbols-outlined text-lg" data-icon="palette">palette</span>
+</button>
+</div>
+</div>
+<!-- Latest Inquiries -->
+<div class="space-y-4">
+<div class="flex justify-between items-center">
+<h3 class="text-sm font-headline font-bold uppercase tracking-widest text-stone-500">Latest Inquiries</h3>
+<span class="px-2 py-0.5 bg-secondary-container text-on-secondary-container text-[10px] font-bold">+2 New</span>
+</div>
+<div class="space-y-3">
+<div class="p-4 bg-surface-container-low hover:bg-surface-container-high transition-colors cursor-pointer border-l-2 border-primary">
+<div class="flex justify-between items-start mb-2">
+<p class="text-xs font-bold">Alex Thompson</p>
+<p class="text-[10px] text-stone-500">10m ago</p>
+</div>
+<p class="text-xs text-stone-400 line-clamp-2 leading-relaxed">"Interested in a collaboration for a high-end fintech dashboard. Your aesthetic..."</p>
+</div>
+<div class="p-4 bg-surface-container-low hover:bg-surface-container-high transition-colors cursor-pointer border-l-2 border-secondary">
+<div class="flex justify-between items-start mb-2">
+<p class="text-xs font-bold">Sarah Chen</p>
+<p class="text-[10px] text-stone-500">2h ago</p>
+</div>
+<p class="text-xs text-stone-400 line-clamp-2 leading-relaxed">"Looking for a front-end lead for a green energy startup. Love the artisan feel of..."</p>
+</div>
+<div class="p-4 bg-surface-container-low hover:bg-surface-container-high transition-colors cursor-pointer">
+<div class="flex justify-between items-start mb-2">
+<p class="text-xs font-bold">Studio Nexus</p>
+<p class="text-[10px] text-stone-500">Yesterday</p>
+</div>
+<p class="text-xs text-stone-400 line-clamp-2 leading-relaxed">"Reaching out regarding your availability for Q3 consulting work on a design system..."</p>
+</div>
+</div>
+</div>
+<!-- System Status -->
+<div class="p-4 bg-surface-container-lowest border border-stone-800/20">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
+<p class="text-[0.6875rem] uppercase tracking-widest text-stone-400">System Functional</p>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between items-center text-[10px] uppercase tracking-tighter">
+<span class="text-stone-600">Server Load</span>
+<span class="text-stone-300">14%</span>
+</div>
+<div class="w-full bg-stone-900 h-1">
+<div class="bg-primary h-full w-[14%]"></div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</main>
+<!-- Contextual FAB (Dashboard relevant) -->
+<button class="fixed bottom-8 right-8 w-14 h-14 bg-primary text-on-primary flex items-center justify-center shadow-2xl hover:scale-105 transition-all duration-300 group">
+<span class="material-symbols-outlined text-3xl group-hover:rotate-90 transition-transform duration-300" data-icon="add">add</span>
+</button>
+</body></html>

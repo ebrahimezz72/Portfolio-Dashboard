@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary": "#3c2e1b",
+                        "on-secondary-fixed-variant": "#544430",
+                        "on-secondary-fixed": "#261908",
+                        "error-container": "#93000a",
+                        "primary": "#bbcbb7",
+                        "inverse-primary": "#546252",
+                        "secondary-fixed-dim": "#dbc3a8",
+                        "secondary-container": "#574632",
+                        "primary-fixed-dim": "#bbcbb7",
+                        "error": "#ffb4ab",
+                        "surface-container-highest": "#333537",
+                        "secondary-fixed": "#f8dec3",
+                        "surface-variant": "#333537",
+                        "inverse-surface": "#e2e2e5",
+                        "on-tertiary": "#412c14",
+                        "on-primary-fixed": "#121f12",
+                        "surface-container": "#1e2022",
+                        "surface": "#121416",
+                        "on-primary-fixed-variant": "#3c4a3b",
+                        "on-tertiary-container": "#d3b291",
+                        "on-secondary-container": "#ccb59b",
+                        "surface-container-lowest": "#0c0e10",
+                        "on-background": "#e2e2e5",
+                        "surface-container-high": "#282a2c",
+                        "outline-variant": "#444842",
+                        "on-error-container": "#ffdad6",
+                        "primary-fixed": "#d7e7d3",
+                        "primary-container": "#3e4c3d",
+                        "on-tertiary-fixed": "#291803",
+                        "inverse-on-surface": "#2f3133",
+                        "secondary": "#dbc3a8",
+                        "surface-tint": "#bbcbb7",
+                        "outline": "#8e928b",
+                        "on-error": "#690005",
+                        "on-primary-container": "#acbca9",
+                        "tertiary-container": "#5b442a",
+                        "surface-bright": "#37393b",
+                        "on-surface-variant": "#c4c8c0",
+                        "tertiary-fixed-dim": "#e3c19f",
+                        "on-tertiary-fixed-variant": "#5a4229",
+                        "on-surface": "#e2e2e5",
+                        "on-primary": "#263426",
+                        "background": "#121416",
+                        "tertiary-fixed": "#ffddbb",
+                        "tertiary": "#e3c19f",
+                        "surface-dim": "#121416",
+                        "surface-container-low": "#1a1c1e"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Space Grotesk"],
+                        "display": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #333537; border-radius: 10px; }
+        .tonal-shift { background-color: #1e2022; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body overflow-hidden h-screen flex">
+<!-- SideNavBar Component -->
+<aside class="h-screen w-64 border-r border-stone-800/30 bg-stone-950/60 backdrop-blur-xl flex flex-col py-8 px-4 shadow-2xl shadow-black/50 font-['Space_Grotesk'] tracking-tight">
+<div class="mb-10 px-2">
+<h1 class="text-lg font-bold text-stone-100 tracking-widest uppercase">Artisan Admin</h1>
+<p class="text-[10px] text-stone-500 uppercase tracking-[0.2em] mt-1">Engineering Studio</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-stone-500 hover:text-stone-200 transition-all duration-300 hover:bg-stone-800/50 group" href="#">
+<span class="material-symbols-outlined text-xl">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-stone-500 hover:text-stone-200 transition-all duration-300 hover:bg-stone-800/50 group" href="#">
+<span class="material-symbols-outlined text-xl">inventory_2</span>
+<span class="text-sm font-medium">Projects</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-stone-500 hover:text-stone-200 transition-all duration-300 hover:bg-stone-800/50 group" href="#">
+<span class="material-symbols-outlined text-xl">work_history</span>
+<span class="text-sm font-medium">Experience</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-stone-500 hover:text-stone-200 transition-all duration-300 hover:bg-stone-800/50 group" href="#">
+<span class="material-symbols-outlined text-xl">workspace_premium</span>
+<span class="text-sm font-medium">Certificates</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-emerald-200 border-r-2 border-emerald-400 bg-emerald-950/20 cubic-bezier(0.4, 0, 0.2, 1) transform translate-x-1" href="#">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">mail</span>
+<span class="text-sm font-bold">Messages</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-stone-500 hover:text-stone-200 transition-all duration-300 hover:bg-stone-800/50 group" href="#">
+<span class="material-symbols-outlined text-xl">settings</span>
+<span class="text-sm font-medium">Settings</span>
+</a>
+</nav>
+<div class="mt-auto px-2 pt-6 border-t border-stone-800/30">
+<button class="w-full bg-primary text-on-primary py-3 rounded-lg text-sm font-bold uppercase tracking-wider flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-lg">add</span>
+                New Project
+            </button>
+<div class="mt-6 flex items-center gap-3 px-2">
+<img alt="User profile picture" class="w-10 h-10 rounded-full border border-stone-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpuJvBkyKQswn2urOKxlc3ZS9E1v7jYvX4MZQ67DAFl6qb2uKlR4qL-G7jYHZprtT4kN4sl9F2_on0M0EbI_T9L540Ja2rNR_kRJXyJj4RXe9Atg9e73TqOlGKzmTuM_S3qd85-z7vXxGMYXFH6hyZ8_6JG8Rf83zwvrHqPDRK9DEr3g71KnNQkxO7O5MmW73nDhZ-waRg9j6Dy28zFBBSc6TMiFDrn-P5US4cog-Mn73yCYfOjbl6vME_QwBvYui9hA3nRKcj-QZC"/>
+<div class="overflow-hidden">
+<p class="text-xs font-bold text-stone-100 truncate">Ibrahim Ezzeldin</p>
+<p class="text-[10px] text-stone-500 truncate">Lead Engineer</p>
+</div>
+</div>
+</div>
+</aside>
+<div class="flex-1 flex flex-col min-w-0">
+<!-- TopNavBar Component -->
+<header class="w-full h-16 sticky top-0 z-50 bg-stone-950/40 backdrop-blur-md flex justify-between items-center px-8 border-b border-stone-800/20">
+<div class="flex items-center flex-1 max-w-xl">
+<div class="relative w-full group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-stone-500 group-focus-within:text-emerald-400 transition-colors">search</span>
+<input class="w-full bg-surface-container-low border-none rounded-lg pl-10 pr-4 py-2 text-sm text-on-surface focus:ring-1 focus:ring-emerald-500/30 placeholder:text-stone-600 transition-all" placeholder="Search inquiries, clients or messages..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4">
+<button class="text-stone-400 hover:text-emerald-200 transition-all relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-emerald-500 rounded-full border-2 border-stone-900"></span>
+</button>
+<button class="text-stone-400 hover:text-emerald-200 transition-all">
+<span class="material-symbols-outlined">dark_mode</span>
+</button>
+</div>
+<div class="h-8 w-[1px] bg-stone-800/30"></div>
+<div class="flex items-center gap-3">
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest text-emerald-100 font-bold">Admin Panel</span>
+<img alt="Administrator profile avatar" class="w-8 h-8 rounded-full border border-emerald-500/20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3a3svVUWOqBeWrBO408dPxS7m-BcbyOn-7HlDYQ3Zz38aOfJmJkSst6SWMFFQgkRjaiVOmIeSZl4PoCPr3pvTsVXtvnY5PUQjVSOmvMrjrYs9ZzaylFgmYGUPjbZ5FVj9xQb3Kygk0jmBzPlhQ72E8ny5PboJr8PmRY1f3iIodPjEuNmlcKLqbM3MqswxMVZZsYCvstcJm745zII6Me2P13o45XKHsFuETgMi9B-Dy1XhqzCdzvNxOoP8uyMrCikiE_zkIXADfkLm"/>
+</div>
+</div>
+</header>
+<!-- Main Content Area: Messages Management -->
+<main class="flex-1 flex overflow-hidden bg-surface-container-lowest">
+<!-- Message List Area -->
+<section class="w-[420px] border-r border-stone-800/20 flex flex-col bg-surface-container-low">
+<div class="p-6 flex justify-between items-end">
+<div>
+<span class="text-[10px] uppercase tracking-[0.2em] text-primary mb-1 block">Communication</span>
+<h2 class="text-2xl font-display font-bold text-on-surface">Inquiry Inbox</h2>
+</div>
+<div class="flex gap-1 bg-surface-container-highest p-1 rounded-lg">
+<button class="px-3 py-1 text-[10px] font-bold uppercase rounded bg-primary text-on-primary">All</button>
+<button class="px-3 py-1 text-[10px] font-bold uppercase rounded text-on-surface-variant hover:bg-surface-bright transition-colors">Unread</button>
+<button class="px-3 py-1 text-[10px] font-bold uppercase rounded text-on-surface-variant hover:bg-surface-bright transition-colors">Archived</button>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto custom-scrollbar px-4 space-y-2 pb-6">
+<!-- Message Item: Selected -->
+<div class="p-5 rounded-xl bg-surface-container-high border-l-4 border-primary cursor-pointer group transition-all duration-300">
+<div class="flex justify-between items-start mb-2">
+<span class="text-[10px] font-bold uppercase tracking-widest text-primary">New Inquiry</span>
+<span class="text-[10px] text-stone-500 font-medium font-label">12:45 PM</span>
+</div>
+<h3 class="text-on-surface font-bold text-sm mb-1">Julian Thorne</h3>
+<p class="text-xs text-on-surface-variant font-medium truncate mb-2">Architectural Visualization Project</p>
+<p class="text-xs text-stone-500 line-clamp-2 leading-relaxed">I saw your recent work on the Engineering Studio dashboard and I'm interested in collaborating on a new...</p>
+</div>
+<!-- Message Item -->
+<div class="p-5 rounded-xl hover:bg-surface-container border-l-4 border-transparent cursor-pointer group transition-all duration-300">
+<div class="flex justify-between items-start mb-2">
+<span class="text-[10px] font-bold uppercase tracking-widest text-stone-500 group-hover:text-on-surface-variant">Read</span>
+<span class="text-[10px] text-stone-500 font-medium font-label">Yesterday</span>
+</div>
+<h3 class="text-on-surface font-bold text-sm mb-1">Elena Rodriguez</h3>
+<p class="text-xs text-on-surface-variant font-medium truncate mb-2">Technical Writing Opportunity</p>
+<p class="text-xs text-stone-500 line-clamp-2 leading-relaxed">Hi Ibrahim, we are looking for a senior front-end engineer with an editorial eye to contribute to our tech blog...</p>
+</div>
+<!-- Message Item -->
+<div class="p-5 rounded-xl hover:bg-surface-container border-l-4 border-transparent cursor-pointer group transition-all duration-300">
+<div class="flex justify-between items-start mb-2">
+<span class="text-[10px] font-bold uppercase tracking-widest text-stone-500 group-hover:text-on-surface-variant">Replied</span>
+<span class="text-[10px] text-stone-500 font-medium font-label">Oct 24</span>
+</div>
+<h3 class="text-on-surface font-bold text-sm mb-1">Marcus Chen</h3>
+<p class="text-xs text-on-surface-variant font-medium truncate mb-2">Portfolio Feedback</p>
+<p class="text-xs text-stone-500 line-clamp-2 leading-relaxed">Absolutely stunning work on the grid layouts. I have a few questions regarding the performance optimizations you implemented...</p>
+</div>
+<!-- Message Item -->
+<div class="p-5 rounded-xl hover:bg-surface-container border-l-4 border-transparent cursor-pointer group transition-all duration-300">
+<div class="flex justify-between items-start mb-2">
+<span class="text-[10px] font-bold uppercase tracking-widest text-stone-500 group-hover:text-on-surface-variant">Read</span>
+<span class="text-[10px] text-stone-500 font-medium font-label">Oct 22</span>
+</div>
+<h3 class="text-on-surface font-bold text-sm mb-1">Sophie Al-Fayed</h3>
+<p class="text-xs text-on-surface-variant font-medium truncate mb-2">Collaboration Request</p>
+<p class="text-xs text-stone-500 line-clamp-2 leading-relaxed">Greetings. Our design agency is looking to partner with a developer who understands editorial typography and motion design...</p>
+</div>
+</div>
+</section>
+<!-- Message Detail View Area -->
+<section class="flex-1 flex flex-col bg-surface relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-transparent opacity-30"></div>
+<!-- Detail Header -->
+<div class="p-8 border-b border-stone-800/10 flex justify-between items-start">
+<div class="flex items-center gap-5">
+<img alt="Sender profile picture" class="w-14 h-14 rounded-full border-2 border-primary/20 p-0.5" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOQetLyGQ_LLqQUwDCYcTMcZ3mNem9xblDMrAMT_W0XwUhPqTWxuo1W-Ab2ImhfPflb7gff4e5kuIA4yRC2nUZ-YXs85N0WkqLploXW1R5FvIwZuRCj1wU4po2Vk7s_A8T_Oz0qQGAkFBjSdkPFKvlbqgrsAtYx2-z5L3VW9IxXjRqeXXjVDtkn7Eda1G89yF2fG-Ie-50bkJIRFBU9cZ9rDjsZ0ZQwEdhP1Akc3XfgSi0gW5t4i-ZJZjpH2cSW2N_2vw2TaZIJOQp"/>
+<div>
+<h2 class="text-xl font-display font-bold text-on-surface">Julian Thorne</h2>
+<p class="text-sm text-stone-500 font-medium">julian.thorne@spatial-design.co</p>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="p-2 bg-surface-container-high hover:bg-surface-bright text-on-surface-variant rounded-lg transition-colors group" title="Archive">
+<span class="material-symbols-outlined text-xl group-hover:text-primary">archive</span>
+</button>
+<button class="p-2 bg-surface-container-high hover:bg-surface-bright text-on-surface-variant rounded-lg transition-colors group" title="Delete">
+<span class="material-symbols-outlined text-xl group-hover:text-error">delete</span>
+</button>
+</div>
+</div>
+<!-- Message Content -->
+<div class="flex-1 p-10 overflow-y-auto custom-scrollbar">
+<div class="max-w-2xl mx-auto">
+<div class="flex items-center gap-3 mb-8">
+<span class="px-2 py-0.5 bg-primary/10 text-primary text-[10px] font-bold uppercase rounded border border-primary/20">Project Inquiry</span>
+<span class="text-stone-600 font-label text-sm">October 26, 2023 • 12:45 PM</span>
+</div>
+<h1 class="text-3xl font-display font-bold text-on-surface mb-8 leading-tight">Architectural Visualization Project: Web Interface &amp; Dashboard</h1>
+<div class="space-y-6 text-on-surface-variant leading-relaxed font-body">
+<p>Hi Ibrahim,</p>
+<p>I’ve been following your work for some time, particularly your recent exploration into "Editorial Engineering." The way you merge high-end typography with functional front-end precision is exactly what we need for our upcoming studio relaunch.</p>
+<p>We are a London-based architecture firm specializing in sustainable residential builds. We are looking to develop a client portal that allows our homeowners to track their project's progress through a highly visual, technical dashboard—much like the aesthetic you've pioneered.</p>
+<p>Specifically, we need a developer who can:</p>
+<ul class="list-disc pl-5 space-y-3 mt-4 text-on-surface">
+<li>Translate our brutalist-minimalist brand identity into a responsive React application.</li>
+<li>Integrate high-fidelity SVG animations for structural progress charts.</li>
+<li>Ensure the typography remains consistent across various viewport sizes without losing that "printed magazine" feel.</li>
+</ul>
+<p>Would you be available for a brief call next Tuesday afternoon to discuss your process and project availability? We’re aiming to kick off the build by mid-November.</p>
+<p>Best regards,<br/><strong class="text-on-surface">Julian Thorne</strong><br/><span class="text-stone-500 italic">Founder &amp; Lead Architect, Spatial Design Co.</span></p>
+</div>
+<!-- Attachment Preview -->
+<div class="mt-12 p-4 bg-surface-container-low rounded-xl border border-stone-800/10 flex items-center justify-between group hover:border-primary/20 transition-colors">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-surface-container-highest rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">picture_as_pdf</span>
+</div>
+<div>
+<p class="text-xs font-bold text-on-surface">Project_Brief_Spatial_Design.pdf</p>
+<p class="text-[10px] text-stone-500 uppercase tracking-tighter">1.4 MB • Application/PDF</p>
+</div>
+</div>
+<button class="px-4 py-2 text-[10px] font-bold uppercase tracking-widest text-primary border border-primary/30 rounded-lg hover:bg-primary hover:text-on-primary transition-all">Download</button>
+</div>
+</div>
+</div>
+<!-- Action Footer -->
+<div class="p-8 bg-surface-container-low/50 backdrop-blur-sm border-t border-stone-800/10">
+<div class="max-w-2xl mx-auto flex gap-4">
+<button class="flex-1 bg-primary text-on-primary py-4 rounded-lg text-xs font-bold uppercase tracking-widest flex items-center justify-center gap-2 hover:translate-y-[-2px] transition-all shadow-xl shadow-primary/10">
+<span class="material-symbols-outlined text-lg">reply</span>
+                            Reply to Message
+                        </button>
+<button class="px-6 py-4 bg-surface-container-highest text-on-surface py-4 rounded-lg text-xs font-bold uppercase tracking-widest flex items-center justify-center gap-2 hover:bg-surface-bright transition-all">
+<span class="material-symbols-outlined text-lg">done_all</span>
+                            Mark as Read
+                        </button>
+</div>
+</div>
+</section>
+</main>
+</div>
+<!-- Background Subtle Texture -->
+<div class="fixed inset-0 pointer-events-none opacity-[0.03] mix-blend-overlay" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCCxaY3GyW9ypPM3d6zphXKWVQt8hKbzNpwmhaVnKTrjaD78CVV7nii0SEpI9Nz61HOhEqt_doLVrY_8JlGwB1dJX9f_Y_I1SZOPI7dzJbg0PEyM0puJeMSPavXGJgqMhNNU5qkjZ34fbKtfsiYnUggPdHZyTTcwOGR10oNT9E0NMCypHV1w24ctzm9WzZiIr2Fiy93tQE4T65WIqaB_12CMjhqlt_AN9IcFuI-S_4GV2uIwIcVWmYrddEDeL8VtjlG2uxaRXUDjdi6');"></div>
+</body></html>

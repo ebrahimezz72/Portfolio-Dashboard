@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed": "#d7e7d3",
+                    "on-surface": "#e2e2e5",
+                    "tertiary-fixed-dim": "#e3c19f",
+                    "on-tertiary-fixed": "#291803",
+                    "on-error": "#690005",
+                    "surface-container-highest": "#333537",
+                    "on-primary-container": "#acbca9",
+                    "surface-dim": "#121416",
+                    "surface-container-high": "#282a2c",
+                    "on-secondary-fixed": "#261908",
+                    "tertiary-fixed": "#ffddbb",
+                    "tertiary": "#e3c19f",
+                    "surface-bright": "#37393b",
+                    "primary-fixed-dim": "#bbcbb7",
+                    "outline-variant": "#444842",
+                    "secondary": "#dbc3a8",
+                    "inverse-surface": "#e2e2e5",
+                    "error": "#ffb4ab",
+                    "on-tertiary": "#412c14",
+                    "on-primary-fixed": "#121f12",
+                    "on-background": "#e2e2e5",
+                    "on-secondary-container": "#ccb59b",
+                    "surface-container-lowest": "#0c0e10",
+                    "on-surface-variant": "#c4c8c0",
+                    "inverse-primary": "#546252",
+                    "secondary-container": "#574632",
+                    "outline": "#8e928b",
+                    "surface-variant": "#333537",
+                    "background": "#121416",
+                    "surface-tint": "#bbcbb7",
+                    "surface-container": "#1e2022",
+                    "surface": "#121416",
+                    "error-container": "#93000a",
+                    "on-tertiary-container": "#d3b291",
+                    "on-secondary-fixed-variant": "#544430",
+                    "inverse-on-surface": "#2f3133",
+                    "secondary-fixed": "#f8dec3",
+                    "primary": "#bbcbb7",
+                    "secondary-fixed-dim": "#dbc3a8",
+                    "on-primary-fixed-variant": "#3c4a3b",
+                    "primary-container": "#3e4c3d",
+                    "on-secondary": "#3c2e1b",
+                    "on-primary": "#263426",
+                    "surface-container-low": "#1a1c1e",
+                    "tertiary-container": "#5b442a",
+                    "on-tertiary-fixed-variant": "#5a4229",
+                    "on-error-container": "#ffdad6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Space Grotesk"],
+                    "display": ["Space Grotesk"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .font-headline { font-family: 'Space Grotesk', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Custom Scrollbar for the artisan aesthetic */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #121416; }
+        ::-webkit-scrollbar-thumb { background: #333537; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #bbcbb7; }
+    </style>
+</head>
+<body class="bg-background text-on-surface selection:bg-primary/30 min-h-screen flex overflow-hidden">
+<!-- SideNavBar Component -->
+<aside class="h-screen w-64 bg-stone-950/60 backdrop-blur-xl border-r border-stone-800/30 flex flex-col py-8 px-4 shadow-2xl shadow-black/50 z-50">
+<div class="mb-10 px-2">
+<h1 class="text-lg font-bold text-stone-100 tracking-widest uppercase font-headline">Artisan Admin</h1>
+<p class="text-[10px] text-stone-500 font-label tracking-[0.2em] uppercase mt-1">Engineering Studio</p>
+</div>
+<nav class="flex-1 space-y-2 overflow-y-auto">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-stone-500 hover:text-stone-200 transition-all duration-300 hover:bg-stone-800/50 transform hover:translate-x-1 font-headline tracking-tight" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-stone-500 hover:text-stone-200 transition-all duration-300 hover:bg-stone-800/50 transform hover:translate-x-1 font-headline tracking-tight" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span>Projects</span>
+</a>
+<!-- Active Tab: Experience -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-emerald-200 border-r-2 border-emerald-400 bg-emerald-950/20 transition-all duration-300 transform hover:translate-x-1 font-headline tracking-tight" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">work_history</span>
+<span>Experience</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-stone-500 hover:text-stone-200 transition-all duration-300 hover:bg-stone-800/50 transform hover:translate-x-1 font-headline tracking-tight" href="#">
+<span class="material-symbols-outlined">workspace_premium</span>
+<span>Certificates</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-stone-500 hover:text-stone-200 transition-all duration-300 hover:bg-stone-800/50 transform hover:translate-x-1 font-headline tracking-tight" href="#">
+<span class="material-symbols-outlined">mail</span>
+<span>Messages</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-stone-500 hover:text-stone-200 transition-all duration-300 hover:bg-stone-800/50 transform hover:translate-x-1 font-headline tracking-tight" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+<div class="mt-auto px-2">
+<button class="w-full bg-primary text-on-primary font-headline font-bold py-3 rounded hover:opacity-90 transition-opacity flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">add</span>
+                New Project
+            </button>
+<div class="mt-8 flex items-center gap-3">
+<div class="relative w-10 h-10 rounded-full overflow-hidden border border-stone-800">
+<img alt="User profile picture" class="w-full h-full object-cover" data-alt="A sophisticated close-up portrait of a male professional with a clean-cut aesthetic, wearing dark framed glasses and a charcoal grey turtleneck. The lighting is soft and directional, creating deep shadows that emphasize a moody, high-end editorial atmosphere. The background is a blurred studio setting with warm wood tones and subtle tech equipment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2TQgHlQT4RdT33mdVsAor2RoBtJuREiGs4YOLNjxC8CCgoGQdRs3In35jYelDmLlRQJKCnXmEEVcRVdiETE545yjCYJd0xnO5OJTWBsmO3wPM4uOR-S_xdJlGr_P92lvvzqf6PjU4u-KpxBR0r0nUSuiYs2LVdu0y7nhNVZOITmOngAHVi-pVEAU6KRTrnsM_-cuRNIID8a_Z0nQG0rLrldkP4fft41TuVk68BX2fmVA8q9W_Ps7L9iau7-I2AwfV1vF6MI12EP5_"/>
+</div>
+<div class="flex flex-col">
+<span class="text-xs font-bold text-stone-100">Adrian Valerius</span>
+<span class="text-[10px] text-stone-500 uppercase tracking-widest">Lead Artisan</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 flex flex-col min-h-0 bg-surface relative overflow-hidden">
+<!-- TopNavBar Component -->
+<header class="w-full h-16 sticky top-0 z-40 bg-stone-950/40 backdrop-blur-md flex justify-between items-center px-8 border-b border-stone-800/20">
+<div class="flex items-center flex-1 max-w-md">
+<div class="relative w-full focus-within:ring-1 focus-within:ring-emerald-500/30 rounded-lg">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-stone-500 text-sm">search</span>
+<input class="w-full bg-surface-container-low border-none rounded-lg pl-10 pr-4 py-2 text-sm text-stone-300 placeholder-stone-600 focus:ring-0" placeholder="Search entries..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4 text-stone-400">
+<button class="hover:text-emerald-200 transition-all">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="hover:text-emerald-200 transition-all">
+<span class="material-symbols-outlined">dark_mode</span>
+</button>
+</div>
+<div class="h-4 w-[1px] bg-stone-800"></div>
+<div class="text-[10px] font-label uppercase tracking-[0.2em] text-stone-500">
+                    Editorial <span class="text-primary">Engineering</span>
+</div>
+</div>
+</header>
+<!-- Dashboard Content -->
+<section class="flex-1 overflow-y-auto p-8 lg:p-12 space-y-12">
+<!-- Page Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div class="space-y-2">
+<span class="text-xs font-label uppercase tracking-[0.3em] text-primary-fixed-dim">Vault / Professional Narrative</span>
+<h2 class="text-5xl font-headline font-bold text-on-surface tracking-tighter">Experience Management</h2>
+</div>
+<button class="bg-primary text-on-primary px-6 py-3 font-headline font-bold flex items-center gap-2 hover:translate-y-[-2px] transition-all duration-300 shadow-xl shadow-primary/10">
+<span class="material-symbols-outlined">add_circle</span>
+                    Add New Position
+                </button>
+</div>
+<!-- Stats Overview (Asymmetric Layout) -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-surface-container-low p-6 rounded-lg border-l-2 border-primary-fixed-dim">
+<p class="text-[10px] text-stone-500 uppercase tracking-widest font-label mb-2">Total Tenure</p>
+<h3 class="text-3xl font-headline font-bold text-on-surface">12 Years</h3>
+<p class="text-xs text-stone-400 mt-2">Across 4 industry sectors</p>
+</div>
+<div class="bg-surface-container p-6 rounded-lg border-l-2 border-stone-800">
+<p class="text-[10px] text-stone-500 uppercase tracking-widest font-label mb-2">Current Status</p>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+<h3 class="text-xl font-headline font-bold text-emerald-100">Active Engineer</h3>
+</div>
+<p class="text-xs text-stone-400 mt-2">Open to advisory roles</p>
+</div>
+<div class="bg-surface-container-low p-6 rounded-lg border-l-2 border-stone-800">
+<p class="text-[10px] text-stone-500 uppercase tracking-widest font-label mb-2">Portfolio Impact</p>
+<h3 class="text-3xl font-headline font-bold text-on-surface">142+</h3>
+<p class="text-xs text-stone-400 mt-2">Commits this sprint</p>
+</div>
+</div>
+<!-- Experience Bento Grid / Table -->
+<div class="space-y-4">
+<div class="flex items-center justify-between border-b border-stone-800/20 pb-4">
+<h4 class="font-headline text-lg font-semibold tracking-tight text-stone-300">Chronological Archive</h4>
+<div class="flex gap-2">
+<button class="p-2 bg-surface-container-highest/30 rounded text-stone-500 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-sm">filter_list</span>
+</button>
+</div>
+</div>
+<div class="space-y-3">
+<!-- Experience Card 1 -->
+<div class="group bg-surface-container-low hover:bg-surface-container-high transition-all duration-300 p-6 flex flex-col lg:flex-row items-center gap-6 border border-stone-800/10 hover:border-primary/20">
+<div class="w-16 h-16 bg-stone-900 rounded flex items-center justify-center shrink-0 border border-stone-800">
+<span class="material-symbols-outlined text-3xl text-primary/60">terminal</span>
+</div>
+<div class="flex-1 space-y-1">
+<div class="flex flex-wrap items-center gap-3">
+<h5 class="text-xl font-headline font-bold text-on-surface">Senior Front-end Engineer</h5>
+<span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest">Full-time</span>
+<span class="bg-emerald-950 text-emerald-400 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest">Active</span>
+</div>
+<p class="text-stone-400 font-medium">Lumina Digital Agency • <span class="text-stone-500 font-normal">San Francisco, CA</span></p>
+</div>
+<div class="lg:text-right space-y-1 shrink-0">
+<p class="font-headline font-bold text-stone-300">2021 — Present</p>
+<p class="text-[10px] text-stone-500 uppercase tracking-widest">3 Years 4 Months</p>
+</div>
+<div class="flex items-center gap-2 lg:border-l lg:border-stone-800/50 lg:pl-6">
+<button class="p-2 text-stone-500 hover:text-primary transition-colors" title="Toggle Visibility">
+<span class="material-symbols-outlined">visibility</span>
+</button>
+<button class="p-2 text-stone-500 hover:text-secondary transition-colors" title="Edit Entry">
+<span class="material-symbols-outlined">edit_note</span>
+</button>
+<button class="p-2 text-stone-500 hover:text-error transition-colors" title="Archive">
+<span class="material-symbols-outlined">delete_outline</span>
+</button>
+</div>
+</div>
+<!-- Experience Card 2 -->
+<div class="group bg-surface-container-low hover:bg-surface-container-high transition-all duration-300 p-6 flex flex-col lg:flex-row items-center gap-6 border border-stone-800/10 hover:border-primary/20">
+<div class="w-16 h-16 bg-stone-900 rounded flex items-center justify-center shrink-0 border border-stone-800">
+<span class="material-symbols-outlined text-3xl text-stone-600">architecture</span>
+</div>
+<div class="flex-1 space-y-1">
+<div class="flex flex-wrap items-center gap-3">
+<h5 class="text-xl font-headline font-bold text-stone-300">UI Architecture Consultant</h5>
+<span class="bg-secondary-container/30 text-secondary px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest">Contract</span>
+</div>
+<p class="text-stone-400 font-medium">Aether Solutions • <span class="text-stone-500 font-normal">Remote</span></p>
+</div>
+<div class="lg:text-right space-y-1 shrink-0">
+<p class="font-headline font-bold text-stone-400">2019 — 2021</p>
+<p class="text-[10px] text-stone-500 uppercase tracking-widest">2 Years 1 Month</p>
+</div>
+<div class="flex items-center gap-2 lg:border-l lg:border-stone-800/50 lg:pl-6">
+<button class="p-2 text-primary transition-colors" title="Currently Visible">
+<span class="material-symbols-outlined">visibility</span>
+</button>
+<button class="p-2 text-stone-500 hover:text-secondary transition-colors" title="Edit Entry">
+<span class="material-symbols-outlined">edit_note</span>
+</button>
+<button class="p-2 text-stone-500 hover:text-error transition-colors" title="Archive">
+<span class="material-symbols-outlined">delete_outline</span>
+</button>
+</div>
+</div>
+<!-- Experience Card 3 -->
+<div class="group bg-surface-container-low hover:bg-surface-container-high transition-all duration-300 p-6 flex flex-col lg:flex-row items-center gap-6 border border-stone-800/10 hover:border-primary/20 opacity-70">
+<div class="w-16 h-16 bg-stone-900 rounded flex items-center justify-center shrink-0 border border-stone-800">
+<span class="material-symbols-outlined text-3xl text-stone-700">code</span>
+</div>
+<div class="flex-1 space-y-1">
+<div class="flex flex-wrap items-center gap-3">
+<h5 class="text-xl font-headline font-bold text-stone-500 italic line-through">Junior Web Developer</h5>
+<span class="bg-surface-container-highest text-stone-500 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest">Archived</span>
+</div>
+<p class="text-stone-500 font-medium italic">Nexus Media Hub</p>
+</div>
+<div class="lg:text-right space-y-1 shrink-0">
+<p class="font-headline font-bold text-stone-600">2017 — 2019</p>
+</div>
+<div class="flex items-center gap-2 lg:border-l lg:border-stone-800/50 lg:pl-6">
+<button class="p-2 text-stone-700 hover:text-primary transition-colors" title="Hidden">
+<span class="material-symbols-outlined">visibility_off</span>
+</button>
+<button class="p-2 text-stone-700 hover:text-secondary transition-colors" title="Edit Entry">
+<span class="material-symbols-outlined">edit_note</span>
+</button>
+<button class="p-2 text-stone-700 hover:text-error transition-colors" title="Archive">
+<span class="material-symbols-outlined">delete_outline</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Contextual Footer Metadata -->
+<div class="mt-12 flex flex-col md:flex-row items-center justify-between gap-6 opacity-40">
+<div class="text-[10px] font-label uppercase tracking-widest text-stone-500">
+                    Last audit: Oct 24, 2023 • Database sync: 0.2ms
+                </div>
+<div class="flex gap-8">
+<div class="flex items-center gap-2">
+<span class="w-1 h-1 rounded-full bg-stone-600"></span>
+<span class="text-[10px] font-label uppercase tracking-widest text-stone-500">Public visibility enabled</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-1 h-1 rounded-full bg-stone-600"></span>
+<span class="text-[10px] font-label uppercase tracking-widest text-stone-500">SEO Optimized strings</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Aesthetic Background Elements -->
+<div class="absolute -bottom-20 -right-20 w-96 h-96 bg-primary/5 blur-[120px] rounded-full pointer-events-none"></div>
+<div class="absolute top-1/4 left-1/4 w-64 h-64 bg-secondary/5 blur-[100px] rounded-full pointer-events-none"></div>
+</main>
+</body></html>
