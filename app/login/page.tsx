@@ -42,10 +42,10 @@ export default function LoginPage() {
 
       {/* Header */}
       <div className="text-center mb-10 space-y-4">
-        <div className="w-20 h-20 bg-white/5 border border-white/10 rounded-sm mx-auto flex items-center justify-center mb-6 overflow-hidden p-4">
+        <div className="w-20 h-20 bg-foreground/5 border border-white/10 rounded-sm mx-auto flex items-center justify-center mb-6 overflow-hidden p-4">
           <img src="/logo.png" alt="Artisan Logo" className="w-full h-full object-contain" />
         </div>
-        <h1 className="text-4xl font-black text-white tracking-[0.2em] uppercase">Artisan Admin</h1>
+        <h1 className="text-4xl font-black text-foreground tracking-[0.2em] uppercase">Artisan Admin</h1>
         <p className="text-[10px] text-muted-foreground uppercase tracking-[0.4em] font-medium opacity-60">
           Engineering Studio Portal
         </p>
@@ -72,7 +72,7 @@ export default function LoginPage() {
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="architect@editorial.eng"
                   required
-                  className="w-full bg-white/[0.03] border border-border py-4 pl-12 pr-4 text-sm text-white focus:outline-none focus:border-accent transition-all rounded-none"
+                  className="w-full bg-foreground/[0.03] border border-border py-4 pl-12 pr-4 text-sm text-foreground focus:outline-none focus:border-accent transition-all rounded-none"
                 />
               </div>
             </div>
@@ -89,12 +89,12 @@ export default function LoginPage() {
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="••••••••••••"
                   required
-                  className="w-full bg-white/[0.03] border border-border py-4 pl-12 pr-12 text-sm text-white focus:outline-none focus:border-accent transition-all rounded-none"
+                  className="w-full bg-foreground/[0.03] border border-border py-4 pl-12 pr-12 text-sm text-foreground focus:outline-none focus:border-accent transition-all rounded-none"
                 />
                 <button 
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-white transition-colors"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
                 >
                   {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
                 </button>
@@ -104,8 +104,8 @@ export default function LoginPage() {
 
           <div className="flex items-center justify-between">
             <label className="flex items-center gap-3 cursor-pointer group">
-              <input type="checkbox" className="w-4 h-4 rounded-none border-border bg-white/5 checked:bg-accent accent-accent" />
-              <span className="text-[11px] text-muted-foreground group-hover:text-white transition-colors">Keep me signed in</span>
+              <input type="checkbox" className="w-4 h-4 rounded-none border-border bg-foreground/5 checked:bg-accent accent-accent" />
+              <span className="text-[11px] text-muted-foreground group-hover:text-foreground transition-colors">Keep me signed in</span>
             </label>
             <button type="button" className="text-[11px] text-muted-foreground hover:text-accent hover:underline underline-offset-4 transition-all">
               Forgot Key?
@@ -123,7 +123,7 @@ export default function LoginPage() {
 
         <div className="mt-12 pt-8 border-t border-border/50 text-center space-y-6">
           <p className="text-[11px] text-muted-foreground font-medium">New to the Engineering Studio?</p>
-          <button className="w-full border border-border py-4 font-black text-[10px] uppercase tracking-widest text-white hover:bg-white/5 transition-all">
+          <button className="w-full border border-border py-4 font-black text-[10px] uppercase tracking-widest text-foreground hover:bg-foreground/5 transition-all">
             Request Access
           </button>
         </div>
@@ -135,7 +135,7 @@ export default function LoginPage() {
         
         <div className="flex items-center gap-8">
           {["System Status", "Privacy Protocol", "Documentation"].map((link) => (
-            <button key={link} className="text-[9px] font-black text-muted-foreground hover:text-white uppercase tracking-widest transition-colors">
+            <button key={link} className="text-[9px] font-black text-muted-foreground hover:text-foreground uppercase tracking-widest transition-colors">
               {link}
             </button>
           ))}
@@ -147,7 +147,7 @@ export default function LoginPage() {
         <div className="w-2 h-2 bg-accent rounded-full animate-pulse shadow-[0_0_10px_rgba(200,217,191,0.5)]" />
         <div className="text-[10px] leading-tight">
           <p className="text-muted-foreground font-bold uppercase tracking-widest mb-1">Node Server</p>
-          <p className="text-white font-black uppercase tracking-tighter">Amsterdam Cluster • Active</p>
+          <p className="text-foreground font-black uppercase tracking-tighter">Amsterdam Cluster • Active</p>
         </div>
       </div>
     </div>

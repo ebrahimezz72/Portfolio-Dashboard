@@ -1,5 +1,5 @@
 import React from "react";
-import { Eye, Trash2, ShieldCheck } from "lucide-react";
+import { Eye, Trash2, ShieldCheck, Pencil } from "lucide-react";
 
 interface Credential {
   name: string;
@@ -7,13 +7,18 @@ interface Credential {
   org: string;
   date: string;
   id: string;
+  url?: string;
+  imageUrl?: string;
 }
 
-interface CredentialsTableProps {
+ interface CredentialsTableProps {
   credentials: Credential[];
+  onEdit: (id: string) => void;
+  onDelete: (id: string) => void;
+  onView: (id: string) => void;
 }
 
-export default function CredentialsTable({ credentials }: CredentialsTableProps) {
+export default function CredentialsTable({ credentials, onEdit, onDelete, onView }: CredentialsTableProps) {
   return (
     <div className="relative overflow-hidden">
       {/* Background Subtle Text */}
@@ -34,14 +39,14 @@ export default function CredentialsTable({ credentials }: CredentialsTableProps)
           </thead>
           <tbody className="divide-y divide-border/50">
             {credentials.map((cred) => (
-              <tr key={cred.id} className="group hover:bg-white/[0.02] transition-colors">
+              <tr key={cred.id} className="group hover:bg-foreground/[0.02] transition-colors">
                 <td className="px-6 py-6 min-w-[300px]">
                   <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 rounded bg-white/5 border border-border flex items-center justify-center text-muted-foreground group-hover:text-accent transition-colors">
+                    <div className="w-10 h-10 rounded bg-foreground/5 border border-border flex items-center justify-center text-muted-foreground group-hover:text-accent transition-colors">
                       <ShieldCheck size={20} />
                     </div>
                     <div>
-                      <p className="text-sm font-bold text-white group-hover:text-accent transition-colors">{cred.name}</p>
+                      <p className="text-sm font-bold text-foreground group-hover:text-accent transition-colors">{cred.name}</p>
                       <p className="text-[10px] text-muted-foreground uppercase mt-0.5">{cred.type}</p>
                     </div>
                   </div>
@@ -57,8 +62,24 @@ export default function CredentialsTable({ credentials }: CredentialsTableProps)
                 </td>
                 <td className="px-6 py-6 text-right">
                   <div className="flex items-center justify-end gap-4 text-muted-foreground">
-                    <button className="hover:text-white transition-colors"><Eye size={18} /></button>
-                    <button className="hover:text-red-400 transition-colors"><Trash2 size={18} /></button>
+                    <button 
+                      onClick={() => onEdit(cred.id)}
+                      className="hover:text-foreground transition-colors"
+                    >
+                      <Pencil size={18} />
+                    </button>
+                    <button 
+                      onClick={() => onView(cred.id)}
+                      className="hover:text-accent transition-colors"
+                    >
+                      <Eye size={18} />
+                    </button>
+                    <button 
+                      onClick={() => onDelete(cred.id)}
+                      className="hover:text-red-400 transition-colors"
+                    >
+                      <Trash2 size={18} />
+                    </button>
                   </div>
                 </td>
               </tr>

@@ -1,25 +1,63 @@
 @import "tailwindcss";
 
+/* Define variables on HTML for global inheritance */
+html {
+  --background: #121416;
+  --foreground: #e2e2e5;
+  --card: #1e2022;
+  --border: #333537;
+  --accent: #bbcbb7;
+  --accent-foreground: #121416;
+  --muted-foreground: #a1a1aa;
+  --success: #4ade80;
+  --success-bg: rgba(74, 222, 128, 0.1);
+  --warning: #fbbf24;
+  --warning-bg: rgba(251, 191, 36, 0.1);
+  --error: #f87171;
+  --error-bg: rgba(248, 113, 113, 0.1);
+}
+
+html.light {
+  --background: #fdfcfb;
+  --foreground: #121416;
+  --card: #ffffff;
+  --border: #e5e2de;
+  --accent: #3e4c3d;
+  --accent-foreground: #ffffff;
+  --muted-foreground: #71717a;
+  --success: #166534;
+  --success-bg: rgba(22, 101, 52, 0.1);
+  --warning: #854d0e;
+  --warning-bg: rgba(133, 77, 14, 0.1);
+  --error: #991b1b;
+  --error-bg: rgba(153, 27, 27, 0.1);
+}
+
 @theme {
-  --color-background: #000000;
-  --color-foreground: #ffffff;
-  --color-card: #0c0c0c;
-  --color-border: #1a1a1a;
-  --color-accent: #c8d9bf;
-  --color-accent-foreground: #000000;
-  --color-muted-foreground: #a1a1aa;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-muted-foreground: var(--muted-foreground);
 }
 
 @layer base {
-  :root {
-    --background: #000000;
-    --foreground: #ffffff;
+  * {
+    border-color: var(--border);
   }
 
   body {
-    background: var(--background);
+    background-color: var(--background);
     color: var(--foreground);
     font-family: var(--font-geist-sans), var(--font-almarai), Arial, Helvetica, sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  /* Force theme colors on specific elements that might have hardcoded backgrounds */
+  header, nav, aside, main, section, div, table, tr, td, th {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
   }
 
   .font-arabic {
@@ -31,14 +69,13 @@
     width: 8px;
   }
   ::-webkit-scrollbar-track {
-    background: #000000;
+    background: var(--background);
   }
   ::-webkit-scrollbar-thumb {
-    background: #1a1a1a;
-    border: 1px solid #333;
-    border-radius: 0px;
+    background: var(--border);
+    border: 1px solid var(--card);
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #c8d9bf;
+    background: var(--accent);
   }
 }

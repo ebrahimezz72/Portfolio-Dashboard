@@ -58,7 +58,7 @@ export default function MessageSettings() {
     <div className="space-y-8">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h3 className="text-sm font-bold text-white uppercase tracking-widest mb-1">Inquiry Database</h3>
+          <h3 className="text-sm font-bold text-foreground uppercase tracking-widest mb-1">Inquiry Database</h3>
           <p className="text-[11px] text-muted-foreground uppercase tracking-tighter">Raw message records management</p>
         </div>
         <button 
@@ -78,7 +78,7 @@ export default function MessageSettings() {
           placeholder="Filter by name, email, or subject..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          className="w-full bg-white/[0.02] border border-border py-3 pl-12 pr-4 text-xs text-white focus:outline-none focus:border-accent transition-all"
+          className="w-full bg-foreground/[0.02] border border-border py-3 pl-12 pr-4 text-xs text-foreground focus:outline-none focus:border-accent transition-all"
         />
       </div>
 
@@ -86,7 +86,7 @@ export default function MessageSettings() {
       <div className="border border-border overflow-x-auto">
         <table className="w-full text-left border-collapse">
           <thead>
-            <tr className="bg-white/5 border-b border-border">
+            <tr className="bg-foreground/5 border-b border-border">
               <th className="px-6 py-4 text-[10px] font-black text-muted-foreground uppercase tracking-widest">Sender</th>
               <th className="px-6 py-4 text-[10px] font-black text-muted-foreground uppercase tracking-widest">Project / Budget</th>
               <th className="px-6 py-4 text-[10px] font-black text-muted-foreground uppercase tracking-widest text-center">Status</th>
@@ -108,13 +108,13 @@ export default function MessageSettings() {
               </tr>
             ) : (
               filteredMessages.map((msg) => (
-                <tr key={msg.id} className="hover:bg-white/[0.01] transition-colors group">
+                <tr key={msg.id} className="hover:bg-foreground/[0.01] transition-colors group">
                   <td className="px-6 py-4">
-                    <p className="text-xs font-bold text-white">{msg.full_name}</p>
+                    <p className="text-xs font-bold text-foreground">{msg.full_name}</p>
                     <p className="text-[10px] text-muted-foreground truncate max-w-[200px]">{msg.email}</p>
                   </td>
                   <td className="px-6 py-4">
-                    <p className="text-[10px] text-white font-bold">{msg.project_type || "General"}</p>
+                    <p className="text-[10px] text-foreground font-bold">{msg.project_type || "General"}</p>
                     <p className="text-[9px] text-accent font-medium tracking-widest">{msg.budget || "No Budget"}</p>
                   </td>
                   <td className="px-6 py-4">
@@ -123,7 +123,7 @@ export default function MessageSettings() {
                         onClick={() => toggleRead(msg.id, msg.is_read)}
                         className={`px-3 py-1 text-[9px] font-black uppercase tracking-widest border transition-all ${
                           msg.is_read 
-                            ? "bg-white/5 border-border text-muted-foreground" 
+                            ? "bg-foreground/5 border-border text-muted-foreground" 
                             : "bg-accent/10 border-accent/30 text-accent"
                         }`}
                       >
@@ -149,7 +149,7 @@ export default function MessageSettings() {
         </table>
       </div>
 
-      <div className="p-4 bg-white/[0.02] border border-border flex items-start gap-4">
+      <div className="p-4 bg-foreground/[0.02] border border-border flex items-start gap-4">
         <AlertCircle size={18} className="text-accent shrink-0 mt-0.5" />
         <p className="text-[10px] text-muted-foreground leading-relaxed uppercase tracking-tighter">
           Changes made to the inquiry database are persistent. Deleting a record is irreversible and will remove all associated contact metadata from the system.

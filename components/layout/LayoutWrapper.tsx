@@ -5,11 +5,14 @@ import { usePathname } from "next/navigation";
 import Sidebar from "./Sidebar";
 import Navbar from "./Navbar";
 import { useSidebar } from "@/context/SidebarContext";
+import ProjectModal from "../projects/ProjectModal";
+import { useRouter } from "next/navigation";
 
 export default function LayoutWrapper({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
+  const router = useRouter();
   const isLoginPage = pathname === "/login";
-  const { isCollapsed } = useSidebar();
+  const { isCollapsed, isProjectModalOpen, setIsProjectModalOpen } = useSidebar();
 
   if (isLoginPage) {
     return <main className="h-full">{children}</main>;
@@ -26,6 +29,18 @@ export default function LayoutWrapper({ children }: { children: React.ReactNode 
           </div>
         </main>
       </div>
+
+      <ProjectModal 
+        isOpen={isProjectModalOpen} 
+        onClose={() => setIsProjectModalOpen(false)}
+        onSuccess={() => {
+          setIsProjectModalOpen(false);
+          router.refresh();
+          if (pathname !== "/projects") {
+            router.push("/projects");
+          }
+        }}
+      />
     </div>
   );
 }

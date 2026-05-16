@@ -31,7 +31,7 @@ const menuItems = [
 export default function Sidebar() {
   const pathname = usePathname();
   const router = useRouter();
-  const { isCollapsed, toggleSidebar } = useSidebar();
+  const { isCollapsed, toggleSidebar, setIsProjectModalOpen } = useSidebar();
 
   const handleSignOut = async () => {
     await supabase.auth.signOut();
@@ -39,7 +39,7 @@ export default function Sidebar() {
   };
 
   return (
-    <div className={`${isCollapsed ? "w-20" : "w-72"} bg-black border-r border-border flex flex-col h-screen sticky top-0 shrink-0 transition-all duration-300 overflow-hidden`}>
+    <div className={`${isCollapsed ? "w-20" : "w-72"} bg-background border-r border-border flex flex-col h-screen sticky top-0 shrink-0 transition-all duration-300 overflow-hidden`}>
       {/* Brand Header */}
       <div className="p-6 flex items-center justify-between min-h-[100px]">
         {!isCollapsed && (
@@ -48,7 +48,7 @@ export default function Sidebar() {
               <img src="/logo.png" alt="Artisan Logo" className="w-full h-full object-contain" />
             </div>
             <div>
-              <h1 className="text-sm font-black tracking-[0.2em] text-white uppercase">
+              <h1 className="text-sm font-black tracking-[0.2em] text-foreground uppercase">
                 Artisan <span className="text-accent">Admin</span>
               </h1>
               <p className="text-[8px] text-muted-foreground uppercase tracking-[0.3em] font-bold">
@@ -62,14 +62,12 @@ export default function Sidebar() {
              <img src="/logo.png" alt="Artisan Logo" className="w-full h-full object-contain" />
           </div>
         )}
-        {!isCollapsed && (
-          <button 
-            onClick={toggleSidebar}
-            className="p-2 rounded-none bg-white/5 border border-border text-muted-foreground hover:text-white transition-all"
-          >
-            <PanelLeftClose size={18} />
-          </button>
-        )}
+        <button 
+          onClick={toggleSidebar}
+          className="p-2 rounded-none bg-foreground/5 border border-border text-muted-foreground hover:text-foreground transition-all"
+        >
+          {isCollapsed ? <PanelLeft size={18} /> : <PanelLeftClose size={18} />}
+        </button>
       </div>
 
       {/* Navigation */}
@@ -83,8 +81,8 @@ export default function Sidebar() {
                 href={item.href}
                 className={`flex items-center gap-4 px-4 py-4 rounded-none transition-all duration-300 group relative ${
                   isActive 
-                    ? "text-accent bg-white/5" 
-                    : `text-muted-foreground hover:text-white ${isCollapsed ? "hover:bg-accent/10" : "hover:bg-white/[0.02]"}`
+                    ? "text-accent bg-foreground/5" 
+                    : `text-muted-foreground hover:text-foreground ${isCollapsed ? "hover:bg-accent/10" : "hover:bg-foreground/[0.02]"}`
                 } ${isCollapsed ? "justify-center" : ""}`}
               >
                 {isActive && (
@@ -92,7 +90,7 @@ export default function Sidebar() {
                 )}
                 <item.icon 
                   size={isCollapsed ? 32 : 20} 
-                  className={`${isActive ? "text-accent" : "group-hover:text-white"} transition-all duration-300 ${isCollapsed ? "group-hover:scale-110 drop-shadow-[0_0_8px_rgba(200,217,191,0.3)]" : ""}`} 
+                  className={`${isActive ? "text-accent" : "group-hover:text-foreground"} transition-all duration-300 ${isCollapsed ? "group-hover:scale-110 drop-shadow-[0_0_8px_rgba(200,217,191,0.3)]" : ""}`} 
                 />
                 {!isCollapsed && (
                   <span className="text-[11px] font-bold uppercase tracking-[0.2em] animate-in fade-in slide-in-from-left-2">
@@ -106,21 +104,27 @@ export default function Sidebar() {
       </nav>
 
       {/* Action Footer */}
-      <div className="p-4 border-t border-border bg-white/[0.01]">
+      <div className="p-4 border-t border-border bg-foreground/[0.01]">
         {!isCollapsed ? (
-          <button className="w-full bg-accent text-accent-foreground py-4 rounded-none font-black text-[10px] uppercase tracking-[0.2em] flex items-center justify-center gap-2 hover:brightness-110 transition-all active:scale-95 mb-6">
+          <button 
+            onClick={() => setIsProjectModalOpen(true)}
+            className="w-full bg-accent text-accent-foreground py-4 rounded-none font-black text-[10px] uppercase tracking-[0.2em] flex items-center justify-center gap-2 hover:brightness-110 transition-all active:scale-95 mb-6"
+          >
             <Plus size={16} strokeWidth={3} />
             NEW PROJECT
           </button>
         ) : (
-          <button className="w-full aspect-square bg-accent text-accent-foreground rounded-none flex items-center justify-center hover:brightness-110 transition-all mb-6">
+          <button 
+            onClick={() => setIsProjectModalOpen(true)}
+            className="w-full aspect-square bg-accent text-accent-foreground rounded-none flex items-center justify-center hover:brightness-110 transition-all mb-6"
+          >
             <Plus size={18} strokeWidth={3} />
           </button>
         )}
 
         {/* User Profile */}
-        <div className={`flex items-center gap-4 p-4 bg-white/5 border border-border group cursor-pointer hover:bg-accent/10 transition-all ${isCollapsed ? "justify-center" : ""}`}>
-          <div className="w-10 h-10 rounded-sm bg-white/5 border border-border flex items-center justify-center text-muted-foreground group-hover:text-accent transition-colors shrink-0">
+        <div className={`flex items-center gap-4 p-4 bg-foreground/5 border border-border group cursor-pointer hover:bg-accent/10 transition-all ${isCollapsed ? "justify-center" : ""}`}>
+          <div className="w-10 h-10 rounded-sm bg-foreground/5 border border-border flex items-center justify-center text-muted-foreground group-hover:text-accent transition-colors shrink-0">
             <UserIcon 
               size={isCollapsed ? 32 : 20} 
               className={`transition-all duration-300 ${isCollapsed ? "group-hover:scale-110 drop-shadow-[0_0_8px_rgba(200,217,191,0.3)]" : ""}`}
@@ -129,7 +133,7 @@ export default function Sidebar() {
           {!isCollapsed && (
             <>
               <div className="flex-1 min-w-0 animate-in fade-in slide-in-from-left-2">
-                <p className="text-xs font-bold text-white truncate">Ibrahim Ezzeldin</p>
+                <p className="text-xs font-bold text-foreground truncate">Ibrahim Ezzeldin</p>
                 <p className="text-[9px] text-muted-foreground uppercase tracking-widest truncate">Lead Engineer</p>
               </div>
               <button 

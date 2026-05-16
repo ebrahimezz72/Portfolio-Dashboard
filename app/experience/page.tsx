@@ -8,6 +8,7 @@ import ExperienceList from "@/components/experience/ExperienceList";
 import ExperienceCard from "@/components/experience/ExperienceCard";
 import { Filter } from "lucide-react";
 import { supabase } from "@/lib/supabase";
+import { useSearchParams } from "next/navigation";
 
 const getIcon = (role: string): LucideIcon => {
   if (!role) return Code2;
@@ -19,6 +20,9 @@ const getIcon = (role: string): LucideIcon => {
 export default function ExperiencePage() {
   const [experience, setExperience] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
+  const [activeFilter, setActiveFilter] = useState("ALL");
+  const [localSearch, setLocalSearch] = useState("");
+  const searchParams = useSearchParams();
 
   useEffect(() => {
     async function fetchExperience() {
@@ -39,11 +43,44 @@ export default function ExperiencePage() {
     fetchExperience();
   }, []);
 
+  useEffect(() => {
+    if (!loading && experience.length > 0) {
+      const urlId = searchParams.get("id");
+      if (urlId) {
+        setTimeout(() => {
+          const el = document.getElementById(`exp-${urlId}`);
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            el.classList.add('ring-2', 'ring-accent', 'animate-pulse');
+            setTimeout(() => el.classList.remove('ring-2', 'ring-accent', 'animate-pulse'), 3000);
+          }
+        }, 100);
+      }
+    }
+  }, [loading, experience, searchParams]);
+
   const stats = [
     { label: "TOTAL TENURE", value: "2 Years", sub: "Across 4 industry sectors" },
     { label: "CURRENT STATUS", value: "Active Engineer", sub: "Open to advisory roles" },
     { label: "PORTFOLIO IMPACT", value: "142+", sub: "Commits this sprint" },
   ];
+
+  const filteredExperience = experience.filter(exp => {
+    // 1. Filter by Type
+    if (activeFilter !== "ALL" && exp.employment_type !== activeFilter) return false;
+    
+    // 2. Search
+    if (localSearch) {
+      const q = localSearch.toLowerCase();
+      if (!exp.role?.toLowerCase().includes(q) && !exp.company?.toLowerCase().includes(q)) {
+        return false;
+      }
+    }
+    
+    return true;
+  });
+
+  const employmentTypes = ["ALL", ...Array.from(new Set(experience.map(e => e.employment_type)))];
 
   return (
     <div className="space-y-12 pb-20">
@@ -60,11 +97,32 @@ export default function ExperiencePage() {
 
       {/* List Section */}
       <div className="space-y-6">
-        <div className="flex items-center justify-between">
-          <h2 className="text-xl font-bold text-white tracking-tight">Chronological Archive</h2>
-          <button className="p-2 bg-white/5 border border-border text-muted-foreground hover:text-white transition-colors">
-            <Filter size={18} />
-          </button>
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div className="flex items-center gap-2 overflow-x-auto pb-2 sm:pb-0 flex-1">
+            <h2 className="text-xl font-bold text-foreground tracking-tight mr-4">Chronological Archive</h2>
+            {employmentTypes.map((type) => (
+              <button 
+                key={type}
+                onClick={() => setActiveFilter(type)}
+                className={`text-[10px] font-black px-4 py-2 rounded-sm tracking-widest uppercase transition-all whitespace-nowrap ${
+                  activeFilter === type 
+                    ? "bg-accent text-accent-foreground" 
+                    : "text-muted-foreground hover:text-foreground bg-foreground/5"
+                }`}
+              >
+                {type}
+              </button>
+            ))}
+          </div>
+          <div className="w-full sm:w-auto">
+            <input 
+              type="text"
+              placeholder="Search roles or companies..."
+              value={localSearch}
+              onChange={(e) => setLocalSearch(e.target.value)}
+              className="bg-foreground/5 border border-transparent py-2 px-4 rounded-sm text-xs font-bold tracking-widest focus:outline-none focus:border-accent transition-all uppercase placeholder:normal-case w-full sm:w-64 text-foreground"
+            />
+          </div>
         </div>
         
         {loading ? (
@@ -73,18 +131,19 @@ export default function ExperiencePage() {
           </div>
         ) : (
           <div className="space-y-4">
-            {experience.map((exp) => (
-              <ExperienceCard 
-                key={exp.id}
-                title={exp.role}
-                company={exp.company}
-                location={exp.city || exp.location_type || "Remote"}
-                period={`${exp.period_start} — ${exp.period_end || 'Present'}`}
-                tenure={exp.employment_type}
-                type={exp.employment_type}
-                status="ACTIVE"
-                icon={getIcon(exp.role)}
-              />
+            {filteredExperience.map((exp) => (
+              <div id={`exp-${exp.id}`} key={exp.id} className="transition-all duration-500 rounded-lg">
+                <ExperienceCard 
+                  title={exp.role}
+                  company={exp.company}
+                  location={exp.city || exp.location_type || "Remote"}
+                  period={`${exp.period_start} — ${exp.period_end || 'Present'}`}
+                  tenure={exp.employment_type}
+                  type={exp.employment_type}
+                  status="ACTIVE"
+                  icon={getIcon(exp.role)}
+                />
+              </div>
             ))}
           </div>
         )}

@@ -69,16 +69,16 @@ export default function SettingsPage() {
               onClick={() => setActiveTab(tab.id as TabType)}
               className={`w-full text-left p-5 border transition-all group relative ${
                 activeTab === tab.id 
-                  ? "bg-white/5 border-border border-l-accent" 
-                  : "border-transparent hover:bg-white/[0.02] grayscale hover:grayscale-0"
+                  ? "bg-foreground/5 border-border border-l-accent" 
+                  : "border-transparent hover:bg-foreground/[0.02] grayscale hover:grayscale-0"
               }`}
             >
               <div className="flex items-center gap-4">
-                <div className={`p-2 border ${activeTab === tab.id ? "bg-accent/10 border-accent/20 text-accent" : "bg-white/5 border-border text-muted-foreground"}`}>
+                <div className={`p-2 border ${activeTab === tab.id ? "bg-accent/10 border-accent/20 text-accent" : "bg-foreground/5 border-border text-muted-foreground"}`}>
                   <tab.icon size={18} />
                 </div>
                 <div>
-                  <p className={`text-[11px] font-black uppercase tracking-widest ${activeTab === tab.id ? "text-white" : "text-muted-foreground group-hover:text-white"}`}>
+                  <p className={`text-[11px] font-black uppercase tracking-widest ${activeTab === tab.id ? "text-foreground" : "text-muted-foreground group-hover:text-foreground"}`}>
                     {tab.label}
                   </p>
                   <p className="text-[9px] text-muted-foreground uppercase tracking-tighter mt-0.5 line-clamp-1">

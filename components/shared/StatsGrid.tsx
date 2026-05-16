@@ -18,7 +18,7 @@ export default function StatsGrid({ stats }: StatsGridProps) {
           <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest mb-1">
             {stat.label}
           </p>
-          <p className="text-4xl font-bold text-white tracking-tight mb-2">
+          <p className="text-4xl font-bold text-foreground tracking-tight mb-2">
             {stat.value}
           </p>
           <p className="text-[11px] text-accent/70 font-medium">

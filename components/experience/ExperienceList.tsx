@@ -38,8 +38,8 @@ export default function ExperienceList() {
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
-        <h2 className="text-xl font-bold text-white tracking-tight">Chronological Archive</h2>
-        <button className="p-2 bg-white/5 border border-border text-muted-foreground hover:text-white transition-colors">
+        <h2 className="text-xl font-bold text-foreground tracking-tight">Chronological Archive</h2>
+        <button className="p-2 bg-foreground/5 border border-border text-muted-foreground hover:text-foreground transition-colors">
           <Filter size={18} />
         </button>
       </div>

@@ -5,10 +5,14 @@ import InboxSidebar from "@/components/messages/InboxSidebar";
 import MessageDetail from "@/components/messages/MessageDetail";
 import { supabase } from "@/lib/supabase";
 
+import { useSearchParams } from "next/navigation";
+
 export default function MessagesPage() {
   const [messages, setMessages] = useState<any[]>([]);
   const [activeId, setActiveId] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
+  const [activeFilter, setActiveFilter] = useState("ALL");
+  const searchParams = useSearchParams();
 
   useEffect(() => {
     async function fetchMessages() {
@@ -20,7 +24,12 @@ export default function MessagesPage() {
         
         if (data && data.length > 0) {
           setMessages(data);
-          setActiveId(data[0].id);
+          const urlId = searchParams.get("id");
+          if (urlId && data.some((m) => m.id === urlId)) {
+            setActiveId(urlId);
+          } else {
+            setActiveId(data[0].id);
+          }
         }
       } catch (error) {
         console.error("Error fetching messages:", error);
@@ -30,11 +39,17 @@ export default function MessagesPage() {
     }
 
     fetchMessages();
-  }, []);
+  }, [searchParams]);
   
   const activeMessage = messages.find(m => m.id === activeId) || null;
 
-  const mappedMessages = messages.map(m => ({
+  const filteredMessages = messages.filter(m => {
+    if (activeFilter === "NEW") return m.is_read === false;
+    if (activeFilter === "READ") return m.is_read === true;
+    return true;
+  });
+
+  const mappedMessages = filteredMessages.map(m => ({
     id: m.id,
     sender: m.full_name,
     email: m.email,
@@ -49,7 +64,23 @@ export default function MessagesPage() {
     phone: m.phone_num
   }));
 
-  const activeMappedMessage = mappedMessages.find(m => m.id === activeId);
+  // Always look in ALL messages for detail view (so global search nav always works)
+  const allMappedMessages = messages.map(m => ({
+    id: m.id,
+    sender: m.full_name,
+    email: m.email,
+    subject: m.subject || "No Subject",
+    preview: m.message.substring(0, 100) + "...",
+    time: new Date(m.sent_at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+    date: new Date(m.sent_at).toLocaleString('en-US', { month: 'long', day: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' }),
+    status: m.is_read ? "READ" : "NEW",
+    content: m.message,
+    budget: m.budget,
+    project_type: m.project_type,
+    phone: m.phone_num
+  }));
+
+  const activeMappedMessage = allMappedMessages.find(m => m.id === activeId);
 
   if (loading) {
     return (
@@ -64,7 +95,8 @@ export default function MessagesPage() {
       <InboxSidebar 
         messages={mappedMessages as any} 
         activeId={activeId || ""} 
-        // @ts-ignore
+        activeFilter={activeFilter}
+        onFilterChange={setActiveFilter}
         onSelect={setActiveId}
       />
       {activeMappedMessage ? (

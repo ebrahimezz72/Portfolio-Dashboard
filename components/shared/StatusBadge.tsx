@@ -11,16 +11,16 @@ export default function StatusBadge({ status }: StatusBadgeProps) {
     switch (currentStatus.toUpperCase()) {
       case "PUBLISHED":
       case "ACTIVE":
-        return "bg-[#1a2e25] text-[#4ade80] border border-[#4ade80]/20";
+        return "bg-[var(--success-bg)] text-[var(--success)] border-[var(--success)]/20";
       case "DRAFT":
       case "CONTRACT":
-        return "bg-[#2e261a] text-[#fbbf24] border border-[#fbbf24]/20";
+        return "bg-[var(--warning-bg)] text-[var(--warning)] border-[var(--warning)]/20";
       case "ARCHIVED":
-        return "bg-[#2e1a1a] text-[#f87171] border border-[#f87171]/20";
+        return "bg-[var(--error-bg)] text-[var(--error)] border-[var(--error)]/20";
       case "FULL-TIME":
-        return "bg-[#1a1f2e] text-[#60a5fa] border border-[#60a5fa]/20";
+        return "bg-foreground/5 text-foreground/70 border-border";
       default:
-        return "bg-white/5 text-muted-foreground border border-border";
+        return "bg-foreground/5 text-muted-foreground border border-border";
     }
   };
 

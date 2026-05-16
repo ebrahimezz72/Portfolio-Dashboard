@@ -1,6 +1,9 @@
 import { Geist, Geist_Mono, Almarai } from "next/font/google";
 import "./globals.css";
 import { SidebarProvider } from "@/context/SidebarContext";
+import { ThemeProvider } from "@/context/ThemeContext";
+import { NotificationProvider } from "@/context/NotificationContext";
+import { ToastProvider } from "@/context/ToastContext";
 import LayoutWrapper from "@/components/layout/LayoutWrapper";
 import { Metadata } from "next";
 
@@ -45,11 +48,17 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${almarai.variable} h-full antialiased font-arabic`}
       >
-        <SidebarProvider>
-          <LayoutWrapper>
-            {children}
-          </LayoutWrapper>
-        </SidebarProvider>
+        <ThemeProvider>
+          <ToastProvider>
+            <NotificationProvider>
+              <SidebarProvider>
+                <LayoutWrapper>
+                  {children}
+                </LayoutWrapper>
+              </SidebarProvider>
+            </NotificationProvider>
+          </ToastProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
