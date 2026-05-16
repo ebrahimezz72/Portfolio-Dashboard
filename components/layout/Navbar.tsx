@@ -8,6 +8,8 @@ import { useNotifications } from "@/context/NotificationContext";
 import { useRouter } from "next/navigation";
 import { supabase } from "@/lib/supabase";
 
+import VoiceAdminCommands from "../ai/VoiceAdminCommands";
+
 export default function Navbar() {
   const { theme, toggleTheme } = useTheme();
   const { toggleSidebar } = useSidebar();
@@ -215,6 +217,8 @@ export default function Navbar() {
               </button>
             </div>
           )}
+
+          <VoiceAdminCommands />
 
           <button 
             onClick={toggleTheme}

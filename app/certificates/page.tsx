@@ -13,6 +13,7 @@ import { Plus } from "lucide-react";
 import { useSearchParams } from "next/navigation";
 import { useToast } from "@/context/ToastContext";
 import AddCategoryModal from "@/components/shared/AddCategoryModal";
+import SkillsAnalyzer from "@/components/ai/SkillsAnalyzer";
 
 function CertificatesContent() {
   const [categories, setCategories] = useState<any[]>([]);
@@ -206,6 +207,9 @@ function CertificatesContent() {
           )}
         </div>
       </section>
+
+      {/* AI Skills Analyzer */}
+      <SkillsAnalyzer />
 
       {/* Credentials Section */}
       <section className="space-y-6">

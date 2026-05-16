@@ -13,7 +13,10 @@ import {
   Plus,
   LogOut,
   PanelLeftClose,
-  PanelLeft
+  PanelLeft,
+  Globe,
+  Sparkles,
+  UserCheck
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { supabase } from "@/lib/supabase";
@@ -25,6 +28,9 @@ const menuItems = [
   { icon: UserIcon, label: "Experience", href: "/experience" },
   { icon: Award, label: "Certificates", href: "/certificates" },
   { icon: MessageSquare, label: "Messages", href: "/messages" },
+  { icon: Globe, label: "SEO Generator", href: "/seo-generator" },
+  { icon: Sparkles, label: "Project Generator", href: "/project-generator" },
+  { icon: UserCheck, label: "Bio Generator", href: "/bio-generator" },
   { icon: Settings, label: "Settings", href: "/settings" },
 ];
 

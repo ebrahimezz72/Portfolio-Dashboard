@@ -1,5 +1,6 @@
 import React from "react";
 import { Archive, Trash2, Reply, CheckCircle2, Phone, DollarSign, Briefcase, Mail, User } from "lucide-react";
+import MessageAnalyzer from "../ai/MessageAnalyzer";
 
 interface MessageDetailProps {
   message: {
@@ -86,6 +87,9 @@ export default function MessageDetail({ message }: MessageDetailProps) {
             </div>
           </div>
 
+          {/* AI Analyzer Tool */}
+          <MessageAnalyzer message={message} />
+
           {/* Subject & Message */}
           <div className="space-y-8">
             <h1 className="text-3xl lg:text-4xl font-bold text-foreground leading-tight">
@@ -103,7 +107,7 @@ export default function MessageDetail({ message }: MessageDetailProps) {
       <div className="p-8 border-t border-border flex gap-4 bg-foreground/[0.01]">
         <button className="flex-1 lg:flex-none bg-accent text-accent-foreground px-10 py-5 font-black text-xs uppercase tracking-[0.2em] hover:brightness-110 transition-all flex items-center justify-center gap-3">
           <Reply size={20} strokeWidth={3} />
-          Generate Response
+          Reply Manually
         </button>
         <button className="flex-1 lg:flex-none bg-foreground/5 border border-border text-foreground px-10 py-5 font-black text-xs uppercase tracking-[0.2em] hover:bg-white/10 transition-all flex items-center justify-center gap-3">
           <CheckCircle2 size={20} />

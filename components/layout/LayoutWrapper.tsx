@@ -7,6 +7,7 @@ import Navbar from "./Navbar";
 import { useSidebar } from "@/context/SidebarContext";
 import ProjectModal from "../projects/ProjectModal";
 import { useRouter } from "next/navigation";
+import GlobalChatBot from "../ai/GlobalChatBot";
 
 export default function LayoutWrapper({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -41,6 +42,8 @@ export default function LayoutWrapper({ children }: { children: React.ReactNode 
           }
         }}
       />
+      
+      <GlobalChatBot />
     </div>
   );
 }
