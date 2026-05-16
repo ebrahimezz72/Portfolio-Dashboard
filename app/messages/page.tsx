@@ -1,13 +1,13 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Suspense } from "react";
 import InboxSidebar from "@/components/messages/InboxSidebar";
 import MessageDetail from "@/components/messages/MessageDetail";
 import { supabase } from "@/lib/supabase";
 
 import { useSearchParams } from "next/navigation";
 
-export default function MessagesPage() {
+function MessagesContent() {
   const [messages, setMessages] = useState<any[]>([]);
   const [activeId, setActiveId] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
@@ -107,5 +107,13 @@ export default function MessagesPage() {
         </div>
       )}
     </div>
+  );
+}
+
+export default function MessagesPage() {
+  return (
+    <Suspense fallback={<div className="h-64 flex items-center justify-center"><p className="text-muted-foreground animate-pulse text-xs font-bold uppercase tracking-widest">Loading...</p></div>}>
+      <MessagesContent />
+    </Suspense>
   );
 }

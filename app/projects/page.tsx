@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Suspense } from "react";
 import { 
   Plus, 
   Monitor,
@@ -28,7 +28,7 @@ const getIcon = (name: string): LucideIcon => {
   return Terminal;
 };
 
-export default function ProjectsPage() {
+function ProjectsContent() {
   const [projects, setProjects] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -187,5 +187,13 @@ export default function ProjectsPage() {
         project={selectedProject}
       />
     </div>
+  );
+}
+
+export default function ProjectsPage() {
+  return (
+    <Suspense fallback={<div className="h-64 flex items-center justify-center"><p className="text-muted-foreground animate-pulse text-xs font-bold uppercase tracking-widest">Loading...</p></div>}>
+      <ProjectsContent />
+    </Suspense>
   );
 }

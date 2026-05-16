@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Suspense } from "react";
 import DashboardHeader from "@/components/shared/DashboardHeader";
 import StatsGrid from "@/components/shared/StatsGrid";
 import SkillCategoryCard from "@/components/certificates/SkillCategoryCard";
@@ -14,7 +14,7 @@ import { useSearchParams } from "next/navigation";
 import { useToast } from "@/context/ToastContext";
 import AddCategoryModal from "@/components/shared/AddCategoryModal";
 
-export default function CertificatesPage() {
+function CertificatesContent() {
   const [categories, setCategories] = useState<any[]>([]);
   const [certificates, setCertificates] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
@@ -294,5 +294,13 @@ export default function CertificatesPage() {
         onAdd={handleAddCategory}
       />
     </div>
+  );
+}
+
+export default function CertificatesPage() {
+  return (
+    <Suspense fallback={<div className="h-64 flex items-center justify-center"><p className="text-muted-foreground animate-pulse text-xs font-bold uppercase tracking-widest">Loading...</p></div>}>
+      <CertificatesContent />
+    </Suspense>
   );
 }

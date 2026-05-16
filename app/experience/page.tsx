@@ -1,6 +1,8 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+export const dynamic = 'force-dynamic';
+
+import React, { useEffect, useState, Suspense } from "react";
 import { Plus, Terminal, Compass, Code2, LucideIcon } from "lucide-react";
 import DashboardHeader from "@/components/shared/DashboardHeader";
 import StatsGrid from "@/components/shared/StatsGrid";
@@ -17,7 +19,7 @@ const getIcon = (role: string): LucideIcon => {
   return Code2;
 };
 
-export default function ExperiencePage() {
+function ExperienceContent() {
   const [experience, setExperience] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [activeFilter, setActiveFilter] = useState("ALL");
@@ -164,5 +166,13 @@ export default function ExperiencePage() {
         </div>
       </footer>
     </div>
+  );
+}
+
+export default function ExperiencePage() {
+  return (
+    <Suspense fallback={<div className="h-64 flex items-center justify-center"><p className="text-muted-foreground animate-pulse text-xs font-bold uppercase tracking-widest">Loading Experience...</p></div>}>
+      <ExperienceContent />
+    </Suspense>
   );
 }
